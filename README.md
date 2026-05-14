@@ -102,8 +102,3 @@ Open the terminal from the dock and try these
 | `clear` | Clear terminal |
 | `sudo hire midun` | 👀 |
 
----
-
-## Inspired by
-
-[akashjana.xyz](https://akashjana.xyz) — original macOS portfolio concept by Akash Jana

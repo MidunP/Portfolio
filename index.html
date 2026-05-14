@@ -40,8 +40,7 @@ html, body {
 ────────────────────────────────────────────── */
 #menubar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  /* reference: py-2 = 8px vertical, px-5 = 20px horizontal — no fixed height */
-  padding: 10px 20px;
+  padding: 5px 20px;
   background: rgba(0, 0, 0, 0.68);
   backdrop-filter: blur(64px) saturate(1.5); /* blur-3xl = 64px */
   -webkit-backdrop-filter: blur(64px) saturate(1.5);
@@ -62,7 +61,7 @@ body.light-mode .mico:hover { background: rgba(0,0,0,0.08); }
 body.light-mode #mtime { color: rgba(0,0,0,0.85); }
 .mbar-l, .mbar-r { display: flex; align-items: center; gap: 2px; }
 .mi {
-  padding: 3px 10px; font-size: 14px; border-radius: 5px;
+  padding: 2px 8px; font-size: 13px; border-radius: 5px;
   cursor: pointer; transition: background .15s, color .4s;
   color: rgba(255,255,255,0.95); white-space: nowrap;
   font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', sans-serif;
@@ -78,7 +77,7 @@ body.light-mode #mtime { color: rgba(0,0,0,0.85); }
 }
 .mico:hover { background: rgba(255,255,255,0.12); }
 #mtime {
-  font-size: 13px; font-weight: 400; padding: 2px 6px;
+  font-size: 12px; font-weight: 400; padding: 2px 6px;
   color: rgba(255,255,255,0.95); letter-spacing: .01em;
   font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', sans-serif;
   transition: color .4s;
@@ -177,13 +176,14 @@ body.light-mode #mtime { color: rgba(0,0,0,0.85); }
    DESKTOP GREETING
 ────────────────────────────────────────────── */
 #desktop {
-  position: fixed; inset: 0; top: 44px;
+  position: fixed; inset: 0; top: 44px; bottom: 90px;
   display: flex; align-items: center; justify-content: center; z-index: 1;
 }
 #dg {
   text-align: center; color: #fff;
   animation: fadeUp .9s ease .3s both;
   padding: 0 20px;
+  margin-bottom: 40px;
 }
 
 /* Typewriter row — hidden */
@@ -363,6 +363,19 @@ body.light-mode #mtime { color: rgba(0,0,0,0.85); }
 }
 .fsvg { width: 64px; height: 56px; }
 
+/* ── Finder breadcrumb / back btn ── */
+.fp-nav { display:flex; align-items:center; gap:6px; padding:8px 14px; font-size:12px; color:#888; border-bottom:1px solid #e8e8e8; background:#fafafa; flex-shrink:0; }
+.fp-back { background:none; border:none; cursor:pointer; color:#0a84ff; font-size:12px; padding:1px 5px 1px 2px; border-radius:4px; transition:background .15s; display:flex; align-items:center; gap:3px; }
+.fp-back:hover { background:rgba(10,132,255,.1); }
+.fp-sep { color:#bbb; }
+
+/* ── File type icons in project folder ── */
+.fi-txt .fsvg-file { color:#555; }
+.fsvg-txt { width:48px; height:58px; }
+.fsvg-link { width:48px; height:48px; }
+.fsvg-png { width:52px; height:52px; }
+.fsvg-code { width:48px; height:58px; }
+
 /* ── Project detail ── */
 .pdbody { flex: 1; overflow-y: auto; padding: 24px; display: flex; flex-direction: column; gap: 16px; }
 .phdr { display: flex; align-items: flex-start; gap: 16px; }
@@ -382,58 +395,321 @@ body.light-mode #mtime { color: rgba(0,0,0,0.85); }
 .txtbody { flex: 1; overflow-y: auto; padding: 20px 24px; background: rgba(255,255,255,.02); }
 .txtbody pre { font-family: 'Cascadia Code','Fira Code','Courier New',monospace; font-size: 13px; line-height: 1.7; color: rgba(255,255,255,.85); white-space: pre-wrap; }
 
-/* ── Safari/Articles ── */
+/* ── Image preview modal ── */
+#img-preview-win.win { left:180px; top:80px; width:640px; height:440px; }
+.imgprev-body { flex:1; overflow:hidden; display:flex; align-items:center; justify-content:center; background:#222; }
+.imgprev-body img { max-width:100%; max-height:100%; object-fit:contain; display:block; }
+
+/* ── Safari/Experience ── */
 .bchr { display: flex; flex-direction: column; flex: 1; overflow: hidden; }
-.bbar { display: flex; align-items: center; gap: 10px; padding: 8px 14px; background: rgba(42,42,46,.95); border-bottom: 1px solid rgba(255,255,255,.1); }
+.bbar {
+  display: flex; align-items: center; gap: 10px; padding: 8px 14px;
+  background: rgba(28,28,32,.98);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
 .bnav { display: flex; gap: 4px; }
-.bnavbtn { background: rgba(255,255,255,.08); border: none; padding: 4px 8px; border-radius: 5px; color: rgba(255,255,255,.3); cursor: not-allowed; font-size: 14px; }
-.burl { flex: 1; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 7px; padding: 5px 12px; display: flex; align-items: center; gap: 8px; font-size: 12px; color: rgba(255,255,255,.5); }
-.abody { flex: 1; overflow-y: auto; padding: 18px; display: flex; flex-direction: column; gap: 14px; }
-.acard { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 12px; padding: 16px; cursor: pointer; transition: background .15s, transform .15s; }
-.acard:hover { background: rgba(255,255,255,.08); transform: translateY(-2px); }
-.adate { font-size: 11px; color: rgba(255,255,255,.35); margin-bottom: 5px; }
-.atitle { font-size: 15px; font-weight: 600; color: rgba(255,255,255,.9); margin-bottom: 5px; }
-.aexcerpt { font-size: 13px; color: rgba(255,255,255,.5); line-height: 1.5; }
+.bnavbtn {
+  background: rgba(255,255,255,.06); border: none;
+  padding: 4px 9px; border-radius: 6px;
+  color: rgba(255,255,255,.25); cursor: not-allowed; font-size: 13px;
+}
+.burl {
+  flex: 1; background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.09); border-radius: 8px;
+  padding: 5px 14px; display: flex; align-items: center; gap: 8px;
+  font-size: 12px; color: rgba(255,255,255,.4);
+}
+.burl-lock { color: rgba(80,200,120,.7); font-size: 11px; }
 
-/* ── Gallery ── */
-.gbody { flex: 1; overflow-y: auto; padding: 16px; display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; align-content: start; }
-.gitem { aspect-ratio: 1; border-radius: 10px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); display: flex; align-items: center; justify-content: center; font-size: 44px; cursor: pointer; transition: transform .2s; }
-.gitem:hover { transform: scale(1.05); }
+/* Page body */
+.abody {
+  flex: 1; overflow-y: auto;
+  padding: 28px 32px 40px;
+}
+.abody::-webkit-scrollbar { width: 4px; }
+.abody::-webkit-scrollbar-thumb { background: rgba(255,255,255,.1); border-radius: 2px; }
 
-/* ── Contact ── */
-.contbody { display: flex; flex: 1; overflow: hidden; }
-.csb { width: 180px; flex-shrink: 0; background: rgba(18,18,22,.72); border-right: 1px solid rgba(255,255,255,.1); padding: 12px 8px; }
-.csb input { width: 100%; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); border-radius: 7px; padding: 5px 10px; color: rgba(255,255,255,.8); font-size: 13px; outline: none; margin-bottom: 8px; }
-.cni { padding: 7px 10px; border-radius: 7px; font-size: 13px; color: rgba(255,255,255,.8); cursor: pointer; }
-.cni.act { background: #0a84ff; color: #fff; }
-.cdet { flex: 1; overflow-y: auto; padding: 24px; }
-.cavt { width: 76px; height: 76px; border-radius: 50%; background: linear-gradient(135deg,#9b59b6,#3498db); display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 14px; border: 3px solid rgba(255,255,255,.2); }
-.cnb { font-size: 23px; font-weight: 700; color: rgba(255,255,255,.92); }
-.crole { font-size: 14px; color: #4eb0ff; margin-top: 3px; }
-.cbio { font-size: 13px; color: rgba(255,255,255,.55); margin: 10px 0; line-height: 1.55; }
-.cf { margin-bottom: 12px; }
-.cfl { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: rgba(255,255,255,.3); margin-bottom: 3px; }
-.cfv { font-size: 14px; color: rgba(255,255,255,.82); }
-.sgrid { display: grid; grid-template-columns: repeat(auto-fill,minmax(95px,1fr)); gap: 7px; margin-top: 7px; }
-.schip { display: flex; align-items: center; gap: 7px; padding: 7px 10px; border-radius: 9px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); font-size: 12px; color: rgba(255,255,255,.82); cursor: pointer; text-decoration: none; transition: background .15s, transform .15s; }
-.schip:hover { background: rgba(10,132,255,.18); transform: translateY(-2px); }
+/* Page header */
+.exp-header { margin-bottom: 32px; }
+.exp-header h2 {
+  font-size: 20px; font-weight: 700;
+  color: rgba(255,255,255,.92);
+  letter-spacing: -.02em;
+}
+.exp-header p {
+  font-size: 12px; color: rgba(255,255,255,.28);
+  margin-top: 5px; letter-spacing: .01em;
+}
+
+/* Timeline */
+.exp-timeline { position: relative; display: flex; flex-direction: column; }
+.exp-timeline::before {
+  content: '';
+  position: absolute;
+  left: 19px; top: 12px; bottom: 12px; width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(255,255,255,.1) 10%,
+    rgba(255,255,255,.07) 85%,
+    transparent 100%
+  );
+}
+
+/* Card */
+.acard {
+  display: flex;
+  gap: 22px;
+  padding: 18px 0;
+  position: relative;
+  cursor: default;
+  transition: background .15s;
+}
+.acard:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 42px; right: 0;
+  height: 1px;
+  background: rgba(255,255,255,.05);
+}
+
+/* Dot */
+.acard-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.18);
+  border: 1.5px solid rgba(255,255,255,.12);
+  flex-shrink: 0;
+  margin-top: 4px;
+  margin-left: 15px;
+  transition: background .2s, box-shadow .2s, border-color .2s;
+  position: relative; z-index: 1;
+}
+.acard:hover .acard-dot {
+  background: #4eb0ff;
+  border-color: rgba(78,176,255,.5);
+  box-shadow: 0 0 0 5px rgba(78,176,255,.12), 0 0 14px rgba(78,176,255,.35);
+}
+
+/* Content area */
+.acard-content { flex: 1; min-width: 0; padding-right: 4px; }
+
+.acard-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 16px;
+  margin-bottom: 3px;
+}
+.atitle {
+  font-size: 13.5px; font-weight: 600;
+  color: rgba(255,255,255,.82);
+  letter-spacing: -.01em;
+  transition: color .15s;
+}
+.acard:hover .atitle { color: rgba(255,255,255,.98); }
+
+.adate {
+  font-size: 10.5px;
+  color: rgba(255,255,255,.25);
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+  padding-top: 1px;
+  letter-spacing: .02em;
+}
+
+.aorg {
+  font-size: 11.5px;
+  color: rgba(255,255,255,.32);
+  margin-bottom: 9px;
+  font-weight: 400;
+  letter-spacing: .005em;
+}
+
+.aexcerpt {
+  font-size: 12px;
+  color: rgba(255,255,255,.38);
+  line-height: 1.7;
+  max-width: 520px;
+}
+
+.atags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 12px; }
+.atag {
+  font-size: 9.5px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 4px;
+  padding: 2px 8px;
+  color: rgba(255,255,255,.28);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* Type-specific dot colors */
+.acard[data-type="internship"] .acard-dot { background: rgba(52,199,89,.35); border-color: rgba(52,199,89,.3); }
+.acard[data-type="ambassador"] .acard-dot { background: rgba(255,159,10,.35); border-color: rgba(255,159,10,.3); }
+.acard[data-type="member"] .acard-dot { background: rgba(94,92,230,.35); border-color: rgba(94,92,230,.3); }
+.acard[data-type="writer"] .acard-dot { background: rgba(100,210,255,.35); border-color: rgba(100,210,255,.3); }
+
+/* Suppress old elements */
+.acard-header { display: none; }
+.atype-badge { display: none; }
+
+/* ── Gallery / Photos ── */
+.gbody {
+  flex: 1; overflow-y: auto;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 8px;
+  align-content: start;
+  background: #1a1a1a;
+}
+.gitem {
+  aspect-ratio: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.07);
+  cursor: pointer;
+  transition: transform .22s cubic-bezier(.34,1.2,.64,1), box-shadow .22s;
+  position: relative;
+}
+.gitem:hover { transform: scale(1.03); box-shadow: 0 10px 30px rgba(0,0,0,.6); }
+.gitem:hover .gitem-caption { opacity: 1; }
+.gitem img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gitem-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 20px 10px 8px;
+  background: linear-gradient(transparent, rgba(0,0,0,.65));
+  font-size: 11px; color: rgba(255,255,255,.85);
+  opacity: 0; transition: opacity .2s;
+  pointer-events: none;
+}
+.gitem-emoji { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; font-size: 40px; }
+
+/* ── Contact — matches reference exactly ── */
+.contbody { display: flex; flex-direction: column; flex: 1; overflow: hidden; }
+.contact-card { display: flex; flex-direction: column; flex: 1; overflow: hidden; background: rgba(28,28,32,.55); border-radius: 0 0 12px 12px; }
+
+/* Top hero section — dark bg matching reference */
+.contact-hero {
+  display: flex; align-items: center; gap: 24px;
+  padding: 30px 24px 24px;
+  background: rgba(22,22,28,.7);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.contact-photo {
+  width: 140px; height: 140px;
+  object-fit: cover; object-position: center top;
+  border-radius: 20px;
+  flex-shrink: 0;
+  box-shadow: 0 8px 24px rgba(0,0,0,.5);
+  background: rgba(255,255,255,.05);
+}
+.contact-info { 
+  flex: 1; min-width: 0; 
+  display: flex; flex-direction: column; 
+  align-items: flex-start; text-align: left; 
+}
+.contact-title {
+  font-size: 18px; font-weight: 700;
+  color: rgba(255,255,255,.95);
+  letter-spacing: -.01em; line-height: 1.3;
+  margin-bottom: 5px;
+}
+.contact-sub {
+  font-size: 13px; color: rgba(255,255,255,.4);
+  margin-bottom: 16px; line-height: 1.5;
+}
+.contact-btns { display: flex; justify-content: flex-start; gap: 10px; flex-wrap: wrap; }
+.contact-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 14px; border-radius: 8px;
+  font-size: 12.5px; font-weight: 500; font-family: inherit;
+  cursor: pointer; text-decoration: none;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.08);
+  color: rgba(255,255,255,.82);
+  transition: background .15s, border-color .15s, transform .12s;
+  white-space: nowrap;
+}
+.contact-btn:hover { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.28); transform: translateY(-1px); }
+.contact-btn.copied { background: rgba(52,199,89,.18); border-color: rgba(52,199,89,.35); color: #34c759; }
+
+/* Lower section — slightly different bg for icon grid */
+.contact-lower {
+  display: flex; flex-direction: column;
+  background: rgba(26,26,32,.6);
+  padding: 20px 20px 22px;
+  gap: 16px;
+  flex: 1;
+}
+.contact-lower-label {
+  font-size: 10px; text-transform: uppercase; letter-spacing: .1em;
+  color: rgba(255,255,255,.25); font-weight: 600;
+}
+.contact-socials {
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: nowrap; gap: 10px; padding: 24px;
+  width: 100%; margin: 0;
+}
+.social-icon-btn {
+  width: 52px; height: 52px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  cursor: pointer; text-decoration: none;
+  transition: transform .18s cubic-bezier(.34,1.2,.64,1), background .15s;
+  position: relative; overflow: visible;
+  flex-shrink: 0;
+}
+.social-icon-btn:hover { 
+  transform: translateY(-4px); 
+  background: rgba(255,255,255,0.1); 
+  z-index: 10; 
+}
+.social-icon-btn img { 
+  width: 28px; height: 28px; 
+  object-fit: contain; 
+}
+.social-icon-btn .sib-tooltip {
+  position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+  background: rgba(30,30,35,.96); color: rgba(255,255,255,.85);
+  font-size: 10px; font-weight: 500; padding: 4px 9px; border-radius: 6px;
+  white-space: nowrap; opacity: 0; pointer-events: none;
+  transition: opacity .15s; letter-spacing: .02em;
+}
+.social-icon-btn:hover .sib-tooltip { opacity: 1; }
+
+/* Archive locked sidebar item */
+.si-locked {
+  display: flex; align-items: center; gap: 7px; padding: 5px 10px; border-radius: 7px;
+  font-size: 13px; color: rgba(255,255,255,.25); cursor: not-allowed;
+  user-select: none;
+}
 
 /* ── Terminal ── */
-.termbody { flex: 1; overflow-y: auto; padding: 12px 16px; background: #1a1c1e; cursor: text; font-family: 'Cascadia Code','Fira Code','Courier New',monospace; }
-#tout { color: #c5c8c6; white-space: pre-wrap; }
-.tline { line-height: 1.5; font-size: 13px; }
-.tpd { color: #00ff41; font-weight: 600; }
-.tcmd { color: #c0c5ce; }
-.tout2 { color: #a3be8c; }
-.tinrow { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
-.tprompt { color: #00ff41; font-size: 13px; font-weight: 600; white-space: nowrap; }
-#tinput { flex: 1; background: none; border: none; outline: none; font-family: inherit; font-size: 13px; color: #c5c8c6; caret-color: #00ff41; }
+.termbody {
+  flex: 1; overflow-y: auto;
+  padding: 18px 20px;
+  background: #0d0d0d;
+  cursor: text;
+  font-family: 'Menlo', 'Monaco', 'Cascadia Code', 'Fira Code', 'Courier New', monospace;
+}
+#tout { color: #d4d4d4; white-space: pre-wrap; }
+.tline { line-height: 1.75; font-size: 13.5px; }
+.tpd { color: #61d836; font-weight: 700; }
+.tcmd { color: #ffffff; font-weight: 400; }
+.tout2 { color: #d4d4d4; }
+.tinrow { display: flex; align-items: center; gap: 0; margin-top: 2px; }
+.tprompt { color: #61d836; font-size: 13.5px; font-weight: 700; white-space: nowrap; }
+#tinput { flex: 1; background: none; border: none; outline: none; font-family: inherit; font-size: 13.5px; color: #ffffff; caret-color: #61d836; padding-left: 6px; }
 
 /* ── Resume Window — PDF Viewer ─ matches reference screenshot ─────── */
 .res-viewer {
   display: flex; flex-direction: column;
   width: 100%; height: 100%;
-  background: #404040; /* grey PDF background like reference */
+  background: #505050;
   border-radius: 0 0 10px 10px; overflow: hidden;
 }
 .res-nav {
@@ -458,14 +734,14 @@ body.light-mode #mtime { color: rgba(0,0,0,0.85); }
 .res-canvas-wrap {
   flex: 1; overflow-y: auto; overflow-x: hidden;
   display: flex; justify-content: center; align-items: flex-start;
-  padding: 20px 0; background: #404040;
+  padding: 24px 0; background: #505050;
 }
 .res-canvas-wrap::-webkit-scrollbar { width: 6px; }
-.res-canvas-wrap::-webkit-scrollbar-track { background: #333; }
-.res-canvas-wrap::-webkit-scrollbar-thumb { background: rgba(255,255,255,.2); border-radius: 3px; }
+.res-canvas-wrap::-webkit-scrollbar-track { background: #444; }
+.res-canvas-wrap::-webkit-scrollbar-thumb { background: rgba(255,255,255,.25); border-radius: 3px; }
 #res-canvas {
-  box-shadow: 0 4px 24px rgba(0,0,0,0.6);
-  max-width: 100%;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.7);
+  max-width: calc(100% - 32px);
   display: block;
 }
 .res-loading {
@@ -489,60 +765,57 @@ body.light-mode #mtime { color: rgba(0,0,0,0.85); }
    DOCK — exact macOS style
 ────────────────────────────────────────────── */
 #dock {
-  position: fixed; bottom: 14px; left: 50%; transform: translateX(-50%); z-index: 999;
-  background: rgba(20, 20, 40, 0.72);
-  backdrop-filter: blur(40px) saturate(1.8); -webkit-backdrop-filter: blur(40px) saturate(1.8);
-  border: 1px solid rgba(255,255,255, 0.12);
-  border-radius: 22px;
+  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 999;
+  background: rgba(30, 30, 50, 0.68);
+  backdrop-filter: blur(48px) saturate(2); -webkit-backdrop-filter: blur(48px) saturate(2);
+  border: 1px solid rgba(255,255,255, 0.14);
+  border-radius: 28px;
   padding: 10px 14px;
-  display: flex; align-items: flex-end; gap: 10px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.55), 0 1px 0 rgba(255,255,255,0.1) inset;
+  display: flex; align-items: flex-end; gap: 12px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.08) inset;
 }
 .di {
   display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
   cursor: pointer; position: relative;
-  width: 54px; height: 54px;
-  transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+  width: 68px; height: 68px;
+  flex-shrink: 0;
+  transition: transform 0.2s cubic-bezier(0.34, 1.4, 0.64, 1);
   transform-origin: bottom center;
+  will-change: transform;
 }
-
-/* Standard modest bounce without extreme magnification */
-.di:hover {
-  transform: translateY(-8px) scale(1.1);
-  z-index: 100;
-}
-
+.di:hover { transform: scale(1.28) translateY(-8px); }
 .di:hover .dlbl { opacity: 1; transform: translateY(0); }
+.di:active { transform: scale(1.1) translateY(-4px); }
 
-/* PNG icons — squaricle border-radius */
-.dico {
-  width: 100%; height: 100%; display: block;
+/* All dock icons — uniform squircle, same size */
+.dico, .dico-raw {
+  width: 60px; height: 60px;
+  display: block;
   border-radius: 22%;
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));
-  transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
-  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+  transition: filter 0.15s ease;
+  object-fit: cover;
+  flex-shrink: 0;
 }
-
-/* JPG icons — no border-radius, show full image cleanly */
-.dico-raw {
-  width: 100%; height: 100%; display: block;
-  border-radius: 0;
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));
-  transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
-  object-fit: contain;
+/* Running dot */
+.di.run::after {
+  content: ''; position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%);
+  width: 4px; height: 4px; border-radius: 50%;
+  background: rgba(255,255,255,0.6);
 }
 .di.bnc { animation: dockB .55s cubic-bezier(.34,1.56,.64,1); }
 
-/* Exact macOS Light Tooltip */
+/* macOS tooltip */
 .dlbl {
-  position: absolute; bottom: calc(100% + 14px);
-  background: rgba(199, 219, 245, 0.95);
-  color: #12335f; font-size: 13px; font-weight: 500;
-  padding: 5px 12px; border-radius: 6px; white-space: nowrap; pointer-events: none;
-  opacity: 0; transform: translateY(5px);
-  transition: opacity .2s, transform .2s cubic-bezier(.34,1.56,.64,1);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
-  backdrop-filter: blur(10px);
+  position: absolute; bottom: calc(100% + 10px);
+  background: rgba(30,30,40,0.92);
+  color: rgba(255,255,255,.9); font-size: 12px; font-weight: 500;
+  padding: 4px 10px; border-radius: 7px; white-space: nowrap; pointer-events: none;
+  opacity: 0; transform: translateY(4px);
+  transition: opacity .15s, transform .15s cubic-bezier(.34,1.2,.64,1);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,.1);
+  backdrop-filter: blur(12px);
 }
 .dlbl::after {
   content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
@@ -657,7 +930,7 @@ body.light-mode #mtime { color: rgba(0,0,0,0.85); }
     <div class="wbtns">
       <button class="wb cl" onclick="closeW('fw')"></button>
       <button class="wb mn" onclick="closeW('fw')"></button>
-      <button class="wb mx"></button>
+      <button class="wb mx" onclick="toggleFS('fw')"></button>
     </div>
     <span class="wtitle">Finder</span>
   </div>
@@ -676,28 +949,53 @@ body.light-mode #mtime { color: rgba(0,0,0,0.85); }
         <svg width="13" height="15" viewBox="0 0 24 28" fill="none"><rect x="2" y="1" width="20" height="26" rx="2" stroke="#888" stroke-width="2"/><line x1="6" y1="8" x2="18" y2="8" stroke="#aaa" stroke-width="1.5"/><line x1="6" y1="12" x2="18" y2="12" stroke="#aaa" stroke-width="1.5"/><line x1="6" y1="16" x2="14" y2="16" stroke="#aaa" stroke-width="1.5"/></svg>
         Resume
       </div>
-      <div class="si" onclick="fnav('trash')" id="si-trash">
-        <svg width="13" height="15" viewBox="0 0 24 28" fill="none"><rect x="3" y="8" width="18" height="18" rx="2" stroke="#888" stroke-width="2"/><line x1="1" y1="7" x2="23" y2="7" stroke="#888" stroke-width="2"/><path d="M9 4h6" stroke="#888" stroke-width="1.8" stroke-linecap="round"/><line x1="9" y1="13" x2="9" y2="22" stroke="#888" stroke-width="1.5" stroke-linecap="round"/><line x1="15" y1="13" x2="15" y2="22" stroke="#888" stroke-width="1.5" stroke-linecap="round"/></svg>
-        Trash
+      <div class="si-locked" id="si-trash">
+        <svg width="11" height="14" viewBox="0 0 22 26" fill="none"><rect x="3" y="10" width="16" height="14" rx="2" stroke="rgba(255,255,255,.2)" stroke-width="1.8"/><path d="M7 10V7a4 4 0 0 1 8 0v3" stroke="rgba(255,255,255,.2)" stroke-width="1.8" stroke-linecap="round"/><circle cx="11" cy="17" r="1.5" fill="rgba(255,255,255,.2)"/></svg>
+        Archive
       </div>
       <div class="sbl" style="margin-top:14px">Work</div>
       <div id="si-work-items"></div>
     </div>
     <div class="fm">
-      <div id="fsec-work" class="fs act"><div class="fp">Midun › Work</div><div class="fgrid" id="fgrid"></div></div>
-      <div id="fsec-about" class="fs"><div class="fp">Midun › About me</div><div class="fgrid">
-        <div class="fi" ondblclick="openAbout()">
-          <svg class="fsvg" viewBox="0 0 80 64"><defs><linearGradient id="fa1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#72C1F5"/><stop offset="1" stop-color="#3A9DE0"/></linearGradient><linearGradient id="fa2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#87CDFA"/><stop offset="1" stop-color="#4EB0F0"/></linearGradient></defs><rect x="2" y="14" width="76" height="46" rx="5" fill="url(#fa1)"/><path d="M2 14 Q2 10 6 10 L28 10 Q32 10 34 14 Z" fill="#5BAEE8"/><rect x="2" y="20" width="76" height="40" rx="5" fill="url(#fa2)"/><rect x="2" y="20" width="76" height="6" rx="3" fill="rgba(255,255,255,.22)"/></svg>
-          <span class="finame">about-me.txt</span>
+      <!-- Work: folder grid -->
+      <div id="fsec-work" class="fs act">
+        <div class="fp">Midun › Work</div>
+        <div class="fgrid" id="fgrid"></div>
+      </div>
+      <!-- Project sub-folder view (shared, populated by JS) -->
+      <div id="fsec-proj" class="fs">
+        <div class="fp-nav">
+          <button class="fp-back" onclick="fnav('work')" title="Back to Work">‹ Work</button>
+          <span class="fp-sep">/</span>
+          <span id="fp-proj-name" style="color:#333;font-weight:500"></span>
         </div>
-      </div></div>
+        <div class="fgrid" id="fgrid-proj"></div>
+      </div>
+      <div id="fsec-about" class="fs"><div class="fp">Midun › About me</div><div class="fgrid" id="fgrid-about"></div></div>
       <div id="fsec-resume" class="fs"><div class="fp">Midun › Resume</div><div class="fgrid">
         <div class="fi" ondblclick="openApp('resume')">
-          <svg width="48" height="58" viewBox="0 0 48 58" fill="none"><rect x="2" y="2" width="44" height="54" rx="4" fill="#fff" stroke="#ddd" stroke-width="1.5"/><line x1="10" y1="14" x2="38" y2="14" stroke="#bbb" stroke-width="2"/><line x1="10" y1="20" x2="38" y2="20" stroke="#bbb" stroke-width="2"/><line x1="10" y1="26" x2="30" y2="26" stroke="#bbb" stroke-width="2"/><line x1="10" y1="32" x2="34" y2="32" stroke="#bbb" stroke-width="1.5"/><line x1="10" y1="38" x2="28" y2="38" stroke="#bbb" stroke-width="1.5"/><rect x="10" y="44" width="28" height="6" rx="3" fill="#0a84ff" opacity=".3"/></svg>
-          <span class="finame">Resume.pdf</span>
+          <!-- PDF file icon -->
+          <svg width="52" height="62" viewBox="0 0 52 62" fill="none">
+            <rect x="2" y="2" width="48" height="58" rx="5" fill="#fff" stroke="#e0e0e0" stroke-width="1.5"/>
+            <path d="M32 2 L48 18" stroke="#e0e0e0" stroke-width="1.5"/>
+            <path d="M32 2 L32 18 L48 18" fill="#f0f0f0" stroke="#e0e0e0" stroke-width="1"/>
+            <rect x="8" y="24" width="22" height="3" rx="1.5" fill="#FF3B30"/>
+            <text x="8" y="24" fill="#FF3B30" font-size="8" font-weight="700" font-family="-apple-system,sans-serif" dy="10">PDF</text>
+            <line x1="8" y1="34" x2="44" y2="34" stroke="#ddd" stroke-width="1.5"/>
+            <line x1="8" y1="40" x2="44" y2="40" stroke="#ddd" stroke-width="1.5"/>
+            <line x1="8" y1="46" x2="36" y2="46" stroke="#ddd" stroke-width="1.5"/>
+          </svg>
+          <span class="finame">MIDUN_SDE.pdf</span>
         </div>
       </div></div>
-      <div id="fsec-trash" class="fs"><div class="fp">Midun › Trash</div><div class="fempty"><span style="font-size:44px">🗑️</span><p>Trash is empty</p></div></div>
+      <div id="fsec-trash" class="fs">
+        <div class="fp">Midun › Archive</div>
+        <div class="fempty">
+          <svg width="48" height="56" viewBox="0 0 48 56" fill="none"><rect x="4" y="16" width="40" height="36" rx="4" stroke="rgba(255,255,255,.18)" stroke-width="2"/><path d="M16 16V10a8 8 0 0 1 16 0v6" stroke="rgba(255,255,255,.18)" stroke-width="2" stroke-linecap="round"/><circle cx="24" cy="34" r="3" fill="rgba(255,255,255,.2)"/><path d="M24 37v5" stroke="rgba(255,255,255,.18)" stroke-width="2" stroke-linecap="round"/></svg>
+          <p style="color:rgba(255,255,255,.25);font-size:13px;margin-top:4px">Locked — no access</p>
+          <p style="color:rgba(255,255,255,.15);font-size:11px;margin-top:2px">Private</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -705,7 +1003,7 @@ body.light-mode #mtime { color: rgba(0,0,0,0.85); }
 <!-- PROJECT DETAIL -->
 <div id="pw" class="win hid" style="left:220px;top:115px;width:640px;height:440px">
   <div class="wtbar" onmousedown="drag(event,'pw')">
-    <div class="wbtns"><button class="wb cl" onclick="closeW('pw')"></button><button class="wb mn" onclick="closeW('pw')"></button><button class="wb mx"></button></div>
+    <div class="wbtns"><button class="wb cl" onclick="closeW('pw')"></button><button class="wb mn" onclick="closeW('pw')"></button><button class="wb mx" onclick="toggleFS('pw')"></button></div>
     <span class="wtitle" id="pw-title">Project</span>
   </div>
   <div class="pdbody" id="pw-body"></div>
@@ -714,7 +1012,7 @@ body.light-mode #mtime { color: rgba(0,0,0,0.85); }
 <!-- ABOUT TXT -->
 <div id="aw" class="win hid" style="left:165px;top:78px;width:560px;height:400px">
   <div class="wtbar" onmousedown="drag(event,'aw')">
-    <div class="wbtns"><button class="wb cl" onclick="closeW('aw')"></button><button class="wb mn" onclick="closeW('aw')"></button><button class="wb mx"></button></div>
+    <div class="wbtns"><button class="wb cl" onclick="closeW('aw')"></button><button class="wb mn" onclick="closeW('aw')"></button><button class="wb mx" onclick="toggleFS('aw')"></button></div>
     <span class="wtitle">about-me.txt</span>
   </div>
   <div class="txtbody"><pre id="about-pre"></pre></div>
@@ -723,48 +1021,56 @@ body.light-mode #mtime { color: rgba(0,0,0,0.85); }
 <!-- ARTICLES (SAFARI) -->
 <div id="arw" class="win hid" style="left:110px;top:65px;width:700px;height:500px">
   <div class="wtbar" onmousedown="drag(event,'arw')">
-    <div class="wbtns"><button class="wb cl" onclick="closeW('arw')"></button><button class="wb mn" onclick="closeW('arw')"></button><button class="wb mx"></button></div>
-    <span class="wtitle">Articles — Safari</span>
+    <div class="wbtns"><button class="wb cl" onclick="closeW('arw')"></button><button class="wb mn" onclick="closeW('arw')"></button><button class="wb mx" onclick="toggleFS('arw')"></button></div>
+    <span class="wtitle">Experience — Safari</span>
   </div>
   <div class="bchr">
     <div class="bbar">
       <div class="bnav"><button class="bnavbtn" disabled>&#8592;</button><button class="bnavbtn" disabled>&#8594;</button></div>
-      <div class="burl"><span>🔒</span><span>midun.dev/articles</span></div>
+      <div class="burl"><span class="burl-lock">&#x1F512;</span><span>midun.dev/experience</span></div>
     </div>
     <div class="abody" id="arw-body"></div>
   </div>
 </div>
 
+<!-- IMAGE PREVIEW -->
+<div id="img-preview-win" class="win hid" style="left:180px;top:80px;width:640px;height:440px">
+  <div class="wtbar" onmousedown="drag(event,'img-preview-win')">
+    <div class="wbtns"><button class="wb cl" onclick="closeW('img-preview-win')"></button><button class="wb mn" onclick="closeW('img-preview-win')"></button><button class="wb mx" onclick="toggleFS('img-preview-win')"></button></div>
+    <span class="wtitle" id="img-preview-title">Preview</span>
+  </div>
+  <div class="imgprev-body"><img id="img-preview-img" src="" alt="Preview" /></div>
+</div>
+
 <!-- GALLERY (PHOTOS) -->
 <div id="gw" class="win hid" style="left:165px;top:85px;width:680px;height:480px">
   <div class="wtbar" onmousedown="drag(event,'gw')">
-    <div class="wbtns"><button class="wb cl" onclick="closeW('gw')"></button><button class="wb mn" onclick="closeW('gw')"></button><button class="wb mx"></button></div>
+    <div class="wbtns"><button class="wb cl" onclick="closeW('gw')"></button><button class="wb mn" onclick="closeW('gw')"></button><button class="wb mx" onclick="toggleFS('gw')"></button></div>
     <span class="wtitle">Gallery — Photos</span>
   </div>
   <div class="gbody" id="gw-body"></div>
 </div>
 
 <!-- CONTACT -->
-<div id="cw" class="win hid" style="left:185px;top:78px;width:580px;height:480px">
+<div id="cw" class="win hid" style="left:185px;top:78px;width:580px;height:320px">
   <div class="wtbar" onmousedown="drag(event,'cw')">
-    <div class="wbtns"><button class="wb cl" onclick="closeW('cw')"></button><button class="wb mn" onclick="closeW('cw')"></button><button class="wb mx"></button></div>
+    <div class="wbtns"><button class="wb cl" onclick="closeW('cw')"></button><button class="wb mn" onclick="closeW('cw')"></button><button class="wb mx" onclick="toggleFS('cw')"></button></div>
     <span class="wtitle">Contacts</span>
   </div>
   <div class="contbody">
-    <div class="csb"><input type="text" placeholder="Search"/><div class="cni act" id="cni-name">Midun</div></div>
-    <div class="cdet" id="cw-body"></div>
+    <div class="contact-card" id="cw-body"></div>
   </div>
 </div>
 
 <!-- TERMINAL -->
 <div id="tw-win" class="win hid" style="left:158px;top:88px;width:660px;height:440px">
-  <div class="wtbar dark" onmousedown="drag(event,'tw-win')">
-    <div class="wbtns"><button class="wb cl" onclick="closeW('tw-win')"></button><button class="wb mn" onclick="closeW('tw-win')"></button><button class="wb mx"></button></div>
-    <span class="wtitle" style="color:#ccc">Terminal — bash</span>
+  <div class="wtbar dark" onmousedown="drag(event,'tw-win')" style="background:#1a1a1a;border-bottom:1px solid #2a2a2a;">
+    <div class="wbtns"><button class="wb cl" onclick="closeW('tw-win')"></button><button class="wb mn" onclick="closeW('tw-win')"></button><button class="wb mx" onclick="toggleFS('tw-win')"></button></div>
+    <span class="wtitle" style="color:#999;font-weight:600;font-size:13px;">Terminal</span>
   </div>
   <div class="termbody" id="termbody" onclick="focusTerm()">
     <div id="tout"></div>
-    <div class="tinrow"><span class="tprompt" id="tprompt-el">midun@macbook ~ %</span><input type="text" id="tinput" onkeydown="termKey(event)" autocomplete="off" spellcheck="false"/></div>
+    <div class="tinrow"><span class="tprompt" id="tprompt-el">midun@macfolio %</span><input type="text" id="tinput" onkeydown="termKey(event)" autocomplete="off" spellcheck="false"/></div>
   </div>
 </div>
 
@@ -774,7 +1080,7 @@ body.light-mode #mtime { color: rgba(0,0,0,0.85); }
     <div class="wbtns">
       <button class="wb cl" onclick="closeW('rw')"></button>
       <button class="wb mn" onclick="closeW('rw')"></button>
-      <button class="wb mx"></button>
+      <button class="wb mx" onclick="toggleFS('rw')"></button>
     </div>
     <span class="wtitle">Resume.pdf</span>
     <a href="MIDUN_SDE.pdf" download="MIDUN_Resume.pdf" class="res-dl" title="Download Resume">↓</a>
@@ -796,38 +1102,38 @@ body.light-mode #mtime { color: rgba(0,0,0,0.85); }
 
   <!-- FINDER -->
   <div class="di" onclick="openApp('finder')" id="di-finder" title="Finder">
-    <img class="dico" src="icons/finder.png" alt="Finder" />
+    <img class="dico" src="https://parsefiles.back4app.com/JPaQcFfEEQ1ePdTV6e6yWPn4O7UJFdkFDEFaCJQqJNm/b37671e56d81a89b1af2e03ecdce3a73_low_Finder.png" alt="Finder" onerror="this.src='icons/finder.png'" />
     <span class="dlbl">Finder</span>
   </div>
 
   <!-- SAFARI -->
   <div class="di" onclick="openApp('articles')" id="di-articles" title="Safari">
-    <img class="dico" src="icons/safari.png" alt="Safari" />
+    <img class="dico" src="https://parsefiles.back4app.com/JPaQcFfEEQ1ePdTV6e6yWPn4O7UJFdkFDEFaCJQqJNm/7c2c6aaa6dfb2edb7abc30640a80fb4c_low_Safari.png" alt="Safari" onerror="this.src='icons/safari.png'" />
     <span class="dlbl">Safari</span>
   </div>
 
   <!-- PHOTOS -->
   <div class="di" onclick="openApp('gallery')" id="di-gallery" title="Photos">
-    <img class="dico" src="icons/photos.png" alt="Photos" />
+    <img class="dico" src="https://parsefiles.back4app.com/JPaQcFfEEQ1ePdTV6e6yWPn4O7UJFdkFDEFaCJQqJNm/7b34a5dba3eff7f3f4f4e8e2e4d9d9b8_low_Photos.png" alt="Photos" onerror="this.src='icons/photos.png'" />
     <span class="dlbl">Photos</span>
   </div>
 
   <!-- CONTACTS -->
   <div class="di" onclick="openApp('contact')" id="di-contact" title="Contacts">
-    <img class="dico" src="icons/contacts.png" alt="Contacts" />
+    <img class="dico" src="https://parsefiles.back4app.com/JPaQcFfEEQ1ePdTV6e6yWPn4O7UJFdkFDEFaCJQqJNm/3cf4d8ff7bf36b4e0cd0b1ab8a24dc42_low_Contacts.png" alt="Contacts" onerror="this.src='icons/contacts.png'" />
     <span class="dlbl">Contacts</span>
   </div>
 
   <!-- TERMINAL -->
   <div class="di" onclick="openApp('terminal')" id="di-terminal" title="Terminal">
-    <img class="dico" src="icons/terminal.png" alt="Terminal" />
+    <img class="dico" src="https://parsefiles.back4app.com/JPaQcFfEEQ1ePdTV6e6yWPn4O7UJFdkFDEFaCJQqJNm/fc33e40b12e0e6195dc3c5f9d7d98042_low_Terminal.png" alt="Terminal" onerror="this.src='icons/terminal.png'" />
     <span class="dlbl">Terminal</span>
   </div>
 
   <!-- TRASH -->
   <div class="di" onclick="openApp('trash')" id="di-trash" title="Trash">
     <img class="dico" src="icons/trash.png" alt="Trash" />
-    <span class="dlbl">Trash</span>
+    <span class="dlbl">Archive</span>
   </div>
 
 </div>
@@ -877,8 +1183,9 @@ body.light-mode #mtime { color: rgba(0,0,0,0.85); }
 
 // ── Patch data ───────────────────────
 const D = PORTFOLIO_DATA;
-document.getElementById('cni-name').textContent = D.name||'Midun';
-document.getElementById('tprompt-el').textContent = (D.name||'midun').toLowerCase()+'@macbook ~ %';
+// cni-name removed with old sidebar — safely update terminal prompt only
+const _tpEl = document.getElementById('tprompt-el');
+if(_tpEl) _tpEl.textContent = (D.name||'midun').toLowerCase()+'@macfolio %';
 
 // ── Greeting stagger (TypewriterEffect on "Hey, I'm Name! Welcome to my") ──
 (function buildGreetingStagger(){
@@ -1037,8 +1344,32 @@ function openApp(id){
 }
 function closeW(id){
   const w=document.getElementById(id); if(!w)return;
+  // If fullscreen, restore first
+  if(w.dataset.fsActive) delete w.dataset.fsActive;
   w.style.transform='scale(.88)'; w.style.opacity='0'; w.style.transition='transform .18s,opacity .18s';
   setTimeout(()=>{ w.classList.add('hid'); w.style.transform=''; w.style.opacity=''; w.style.transition=''; },180);
+}
+function toggleFS(id){
+  const w=document.getElementById(id); if(!w)return;
+  bringFront(w);
+  if(w.dataset.fsActive){
+    // Restore
+    const p=JSON.parse(w.dataset.fsPrev||'{}');
+    w.style.left=p.left||'80px'; w.style.top=p.top||'60px';
+    w.style.width=p.width||'700px'; w.style.height=p.height||'500px';
+    w.style.borderRadius=''; w.style.transition='all .3s cubic-bezier(.25,.8,.25,1)';
+    delete w.dataset.fsActive;
+    setTimeout(()=>w.style.transition='',320);
+  } else {
+    // Save current and go fullscreen
+    w.dataset.fsPrev=JSON.stringify({left:w.style.left,top:w.style.top,width:w.style.width,height:w.style.height});
+    w.style.transition='all .3s cubic-bezier(.25,.8,.25,1)';
+    w.style.left='0'; w.style.top='44px';
+    w.style.width='100vw'; w.style.height='calc(100vh - 44px)';
+    w.style.borderRadius='0';
+    w.dataset.fsActive='1';
+    setTimeout(()=>w.style.transition='',320);
+  }
 }
 function bringFront(w){
   document.querySelectorAll('.win').forEach(x=>x.classList.remove('focused'));
@@ -1070,7 +1401,7 @@ function fnav(sec){
   openApp('finder');
 }
 function openAbout(){
-  document.getElementById('about-pre').textContent=`# about-me.txt\n# ${new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}\n# ─────────────────────────────\n\n${D.bio}\n\n# ─────────────────────────────\n# Email    : ${D.email}\n# Location : ${D.location}`;
+  document.getElementById('about-pre').textContent=`about-me.txt — ${new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}\n${'─'.repeat(48)}\n\n${D.bio}\n\n${'─'.repeat(48)}\nEmail    : ${D.email}\nLocation : ${D.location}`;
   const w=document.getElementById('aw'); w.classList.remove('hid'); bringFront(w);
 }
 
@@ -1079,6 +1410,59 @@ function folderSVG(){
   return `<svg class="fsvg" viewBox="0 0 80 64"><defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#72C1F5"/><stop offset="1" stop-color="#3A9DE0"/></linearGradient><linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#87CDFA"/><stop offset="1" stop-color="#4EB0F0"/></linearGradient></defs><rect x="2" y="14" width="76" height="46" rx="5" fill="url(#g1)"/><path d="M2 14 Q2 10 6 10 L28 10 Q32 10 34 14 Z" fill="#5BAEE8"/><rect x="2" y="20" width="76" height="40" rx="5" fill="url(#g2)"/><rect x="2" y="20" width="76" height="6" rx="3" fill="rgba(255,255,255,.22)"/></svg>`;
 }
 
+// ── Build About me folder ─────────────────────────
+(function buildAboutFolder(){
+  const grid=document.getElementById('fgrid-about');
+  if(!grid)return;
+
+  // macOS PNG thumbnail icon using <image> inside SVG
+  function pngThumb(src){
+    const uid='cl'+Math.random().toString(36).slice(2,6);
+    return `<div style="position:relative;width:60px;height:72px;flex-shrink:0">
+      <svg width="60" height="72" viewBox="0 0 60 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1.5" y="1.5" width="57" height="69" rx="4.5" fill="white" stroke="#d8d8d8" stroke-width="1.5"/>
+        <path d="M38 1.5 L58.5 22" stroke="#d8d8d8" stroke-width="1"/>
+        <path d="M38 1.5 L38 22 L58.5 22" fill="#ebebeb" stroke="#d8d8d8" stroke-width="1"/>
+        <image href="${src}" x="3" y="3" width="38" height="34" preserveAspectRatio="xMidYMid slice"/>
+        <rect x="1.5" y="1.5" width="57" height="69" rx="4.5" fill="none" stroke="#d8d8d8" stroke-width="1.5"/>
+        <text x="6" y="66" font-size="7" fill="#aaa" font-family="-apple-system,sans-serif">PNG</text>
+      </svg>
+    </div>`;
+  }
+
+  // Text file icon
+  const txtIcon=`<svg viewBox="0 0 48 58" fill="none" width="48" height="58"><rect x="2" y="2" width="44" height="54" rx="4" fill="#fff" stroke="#ddd" stroke-width="1.5"/><path d="M30 2 L44 16" stroke="#ddd" stroke-width="1"/><path d="M30 2 L30 16 L44 16" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/><line x1="9" y1="24" x2="39" y2="24" stroke="#ccc" stroke-width="2"/><line x1="9" y1="31" x2="39" y2="31" stroke="#ccc" stroke-width="2"/><line x1="9" y1="38" x2="29" y2="38" stroke="#ccc" stroke-width="1.5"/><line x1="9" y1="45" x2="35" y2="45" stroke="#ccc" stroke-width="1.5"/></svg>`;
+
+  // midun.png — static file added by user
+  const staticFiles=[
+    { src:'midun.png', name:'midun.png' }
+  ];
+
+  // vibe.png — from gallery (3rd photo, index 2)
+  const vibePhoto=(D.gallery||[])[2];
+  if(vibePhoto) staticFiles.push({ src:vibePhoto.src, name:'vibe.png' });
+
+  staticFiles.forEach(f=>{
+    const fi=document.createElement('div'); fi.className='fi';
+    fi.innerHTML=pngThumb(f.src)+`<span class="finame">${f.name}</span>`;
+    fi.addEventListener('click',()=>{grid.querySelectorAll('.fi').forEach(x=>x.classList.remove('sel'));fi.classList.add('sel');});
+    fi.addEventListener('dblclick',()=>{
+      const win=document.getElementById('img-preview-win');
+      const prev=document.getElementById('img-preview-img');
+      const ttl=document.getElementById('img-preview-title');
+      if(win&&prev){ prev.src=f.src; if(ttl)ttl.textContent=f.name; win.classList.remove('hid'); bringFront(win); }
+    });
+    grid.appendChild(fi);
+  });
+
+  // about-me.txt
+  const ftxt=document.createElement('div'); ftxt.className='fi';
+  ftxt.innerHTML=txtIcon+`<span class="finame">about-me.txt</span>`;
+  ftxt.addEventListener('click',()=>{grid.querySelectorAll('.fi').forEach(x=>x.classList.remove('sel'));ftxt.classList.add('sel');});
+  ftxt.addEventListener('dblclick',openAbout);
+  grid.appendChild(ftxt);
+})();
+
 // ── Projects ─────────────────────────
 (function buildProjects(){
   const grid=document.getElementById('fgrid');
@@ -1086,14 +1470,54 @@ function folderSVG(){
   D.projects.forEach(p=>{
     const fi=document.createElement('div'); fi.className='fi';
     fi.innerHTML=folderSVG()+`<span class="finame">${p.name}</span>`;
-    fi.addEventListener('dblclick',()=>openProj(p.id));
+    // Single-click selects, double-click opens folder
+    fi.addEventListener('click',()=>{ document.querySelectorAll('#fgrid .fi').forEach(x=>x.classList.remove('sel')); fi.classList.add('sel'); });
+    fi.addEventListener('dblclick',()=>openProjFolder(p.id));
     grid.appendChild(fi);
     const si=document.createElement('div'); si.className='si sub';
     si.innerHTML=`<svg width="12" height="11" viewBox="0 0 80 64"><defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#72C1F5"/><stop offset="1" stop-color="#3A9DE0"/></linearGradient></defs><rect x="1" y="8" width="78" height="50" rx="4" fill="url(#sg)"/><path d="M1 14 Q1 8 5 8 L26 8 Q30 8 32 14 Z" fill="#5BAEE8"/></svg>&nbsp;${p.name}`;
-    si.addEventListener('click',()=>openProj(p.id));
+    si.addEventListener('click',()=>openProjFolder(p.id));
     sideItems.appendChild(si);
   });
 })();
+// -- Open Project Folder (Finder sub-view) ----
+function openProjFolder(id){
+  const p=D.projects.find(x=>x.id===id); if(!p)return;
+  document.querySelectorAll('.si:not(.si[id])').forEach(s=>s.classList.remove('sa'));
+  document.getElementById('fp-proj-name').textContent=p.name;
+  const grid=document.getElementById('fgrid-proj');
+  grid.innerHTML='';
+  function makeFile(iconHtml,label,onDblClick){
+    const fi=document.createElement('div'); fi.className='fi';
+    fi.innerHTML=iconHtml+`<span class="finame">${label}</span>`;
+    fi.addEventListener('click',()=>{grid.querySelectorAll('.fi').forEach(x=>x.classList.remove('sel'));fi.classList.add('sel');});
+    if(onDblClick) fi.addEventListener('dblclick',onDblClick);
+    grid.appendChild(fi);
+  }
+  const txtIcon=`<svg viewBox="0 0 48 58" fill="none" width="48" height="58"><rect x="2" y="2" width="44" height="54" rx="4" fill="#fff" stroke="#ddd" stroke-width="1.5"/><path d="M30 2 L44 16" stroke="#ddd" stroke-width="1"/><path d="M30 2 L30 16 L44 16" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/><line x1="9" y1="24" x2="39" y2="24" stroke="#ccc" stroke-width="2"/><line x1="9" y1="31" x2="39" y2="31" stroke="#ccc" stroke-width="2"/><line x1="9" y1="38" x2="29" y2="38" stroke="#ccc" stroke-width="1.5"/><line x1="9" y1="45" x2="35" y2="45" stroke="#ccc" stroke-width="1.5"/></svg>`;
+  makeFile(txtIcon,p.name+' Project.txt',()=>openProj(p.id));
+  if(p.liveUrl&&p.liveUrl!=='#'){
+    const urlLabel=p.liveUrl.replace('https://','').replace('http://','');
+    const linkIcon=`<svg viewBox="0 0 48 48" width="48" height="48"><defs><linearGradient id="sg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2196F3"/><stop offset="1" stop-color="#1565C0"/></linearGradient></defs><circle cx="24" cy="24" r="22" fill="url(#sg2)"/><ellipse cx="24" cy="24" rx="9" ry="18" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.2"/><circle cx="24" cy="24" r="14" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/><line x1="5" y1="24" x2="43" y2="24" stroke="rgba(255,255,255,0.35)" stroke-width="1"/><line x1="24" y1="5" x2="24" y2="43" stroke="rgba(255,255,255,0.25)" stroke-width="1"/></svg>`;
+    makeFile(linkIcon,urlLabel,()=>window.open(p.liveUrl,'_blank'));
+  }
+  if(p.previewImage){
+    const pngName=p.id.replace(/-/g,'')+('.png');
+    const imgThumb=`<div style="width:64px;height:52px;border-radius:5px;overflow:hidden;border:1.5px solid #c8dff8;background:#e8f4ff;flex-shrink:0;"><img src="${p.previewImage}" style="width:100%;height:100%;object-fit:cover;display:block;" alt="preview"/></div>`;
+    makeFile(imgThumb,pngName,()=>{
+      document.getElementById('img-preview-img').src=p.previewImage;
+      document.getElementById('img-preview-title').textContent=p.name+' — Preview';
+      const w=document.getElementById('img-preview-win'); w.classList.remove('hid'); bringFront(w);
+    });
+  }
+  const hasGH=p.githubUrl&&p.githubUrl!=='#';
+  const ghBg=hasGH?'#24292e':'#aaa';
+  const ghIcon=`<svg viewBox="0 0 48 48" width="48" height="48"><rect width="48" height="48" rx="8" fill="${ghBg}"/><path d="M24 6C14.06 6 6 14.06 6 24c0 7.96 5.16 14.71 12.32 17.1.9.16 1.23-.39 1.23-.87 0-.43-.02-1.87-.02-3.4-4.52.84-5.67-1.95-6.03-2.73-.2-.52-.88-2.12-1.5-2.55-.51-.28-1.24-.96-.02-.98 1.14-.02 1.96 1.05 2.23 1.49 1.3 2.19 3.38 1.57 4.21 1.19.13-.94.51-1.57.93-1.93-3.61-.41-7.39-1.8-7.39-8 0-1.77.63-3.22 1.66-4.36-.16-.41-.72-2.06.16-4.29 0 0 1.35-.43 4.43 1.65 1.29-.36 2.67-.54 4.05-.54 1.38 0 2.76.18 4.05.54 3.08-2.1 4.43-1.65 4.43-1.65.88 2.23.32 3.88.16 4.29 1.03 1.14 1.66 2.57 1.66 4.36 0 6.22-3.79 7.59-7.4 8 .59.51 1.1 1.49 1.1 3.02 0 2.18-.02 3.94-.02 4.48 0 .48.33 1.05 1.24.87C36.84 38.71 42 31.96 42 24 42 14.06 33.94 6 24 6z" fill="white"/></svg>`;
+  makeFile(ghIcon,hasGH?'Source Code':'Source Code (Private)',()=>{if(hasGH)window.open(p.githubUrl,'_blank');});
+  document.querySelectorAll('.fs').forEach(s=>s.classList.remove('act'));
+  document.getElementById('fsec-proj').classList.add('act');
+  openApp('finder');
+}
 
 // ── Resume — PDF.js viewer ───────────────────────────
 (function(){
@@ -1123,14 +1547,18 @@ function folderSVG(){
   function renderPage(num) {
     pageRendering = true;
     pdfDoc.getPage(num).then(function(page) {
-      // Scale to fit window width (canvas wrap is ~640px)
-      var desiredWidth = 620;
+      // Render at 2x device pixel ratio for crisp, high-quality display
+      var DPR          = window.devicePixelRatio || 2;
+      var desiredWidth = Math.min(640, (document.getElementById('rw').offsetWidth || 680) - 40);
       var viewport0    = page.getViewport({ scale: 1 });
-      var scale        = desiredWidth / viewport0.width;
+      var scale        = (desiredWidth / viewport0.width) * DPR;
       var viewport     = page.getViewport({ scale: scale });
 
       canvas.width  = viewport.width;
       canvas.height = viewport.height;
+      // CSS size = logical pixels (not device pixels)
+      canvas.style.width  = (viewport.width  / DPR) + 'px';
+      canvas.style.height = (viewport.height / DPR) + 'px';
 
       page.render({ canvasContext: ctx, viewport: viewport }).promise.then(function() {
         pageRendering = false;
@@ -1211,71 +1639,203 @@ function openProj(id){
 }
 
 // ── Contact ──────────────────────────
-document.getElementById('cw-body').innerHTML=`
-  <div class="cavt">${D.avatarEmoji}</div>
-  <div class="cnb">${D.fullName}</div>
-  <div class="crole">${D.title}</div>
-  <div class="cbio">${D.bio.split('\n').slice(0,4).join('<br>')}</div>
-  <div class="cf"><div class="cfl">Email</div><div class="cfv"><a href="mailto:${D.email}" style="color:#4eb0ff;text-decoration:none">${D.email}</a></div></div>
-  <div class="cf"><div class="cfl">Location</div><div class="cfv">${D.location}</div></div>
-  <div class="cf"><div class="cfl">Social</div>
-    <div class="sgrid">${D.social.map(s=>`<a href="${s.url}" target="_blank" class="schip"><span>${s.icon}</span>${s.name}</a>`).join('')}</div>
-  </div>`;
-
-// ── Articles ─────────────────────────
-(function(){
-  const b=document.getElementById('arw-body');
-  D.articles.forEach(a=>{
-    const c=document.createElement('div'); c.className='acard';
-    c.innerHTML=`<div class="adate">${a.date}</div><div class="atitle">${a.title}</div><div class="aexcerpt">${a.excerpt}</div>`;
-    if(a.url&&a.url!=='#')c.onclick=()=>window.open(a.url);
-    b.appendChild(c);
+function copyEmailToClipboard(){
+  navigator.clipboard.writeText(D.email).then(()=>{
+    const b=document.getElementById('copy-email-btn');
+    if(!b)return;
+    b.classList.add('copied'); b.textContent='✓ Copied!';
+    setTimeout(()=>{ b.classList.remove('copied'); b.textContent='⊠ Copy email'; },2000);
+  }).catch(()=>{
+    prompt('Copy this email:',D.email);
   });
+}
+
+(function buildContact(){
+  const el=document.getElementById('cw-body');
+  if(!el)return;
+
+  const socials=[
+    { label:'Gmail',      url:'mailto:midbxy70@gmail.com',                        
+      img:'https://img.icons8.com/color/512/gmail-new.png' },
+    { label:'LinkedIn',   url:'https://www.linkedin.com/in/midun-p/',         
+      img:'https://img.icons8.com/color/512/linkedin.png' },
+    { label:'Instagram',  url:'https://www.instagram.com/_.midbxy._18?igsh=MWRqMG9nejY1Z3U1bw==',         
+      img:'https://img.icons8.com/color/512/instagram-new.png' },
+    { label:'GitHub',     url:'https://github.com/MidunP',         
+      img:'https://img.icons8.com/ios-filled/512/ffffff/github.png' },
+    { label:'Letterboxd', url:'https://boxd.it/axxen',         
+      img:'https://a.ltrbxd.com/logos/letterboxd-mac-icon.png' },
+    { label:'Pinterest',  url:'https://pin.it/5ZpoGTvbe',              
+      img:'https://img.icons8.com/color/512/pinterest.png' },
+    { label:'Chess.com',  url:'https://www.chess.com/member/midun_186',
+      img:'https://images.chesscomfiles.com/uploads/v1/images_users/tiny_mce/SamCopeland/phpmeXx6V.png' },
+    { label:'Spotify',    url:'https://open.spotify.com/user/316nlnowq4othygefygcz3lgxoyu?si=B7yb5XUuQR2l5M328gCv7g',
+      img:'https://img.icons8.com/color/512/spotify--v1.png' }
+  ];
+
+  const socialsHTML=socials.map(s=>
+    '<a class="social-icon-btn" href="'+s.url+'" target="_blank" title="'+s.label+'">'+
+      '<img src="'+s.img+'" alt="'+s.label+'" />'+
+      '<span class="sib-tooltip">'+s.label+'</span>'+
+    '</a>'
+  ).join('');
+
+  el.innerHTML=
+    '<div class="contact-hero">'+
+      '<img class="contact-photo" src="superman.png" alt="Midun"/>'+
+      '<div class="contact-info">'+
+        '<div class="contact-title">Your friendly neighbourhood developer</div>'+
+        '<div class="contact-sub">Available for collaborations &amp; Open for internships</div>'+
+        '<div class="contact-btns">'+
+          '<button class="contact-btn" id="copy-email-btn" onclick="copyEmailToClipboard()">&#9113; Copy email</button>'+
+          '<a class="contact-btn" href="https://www.linkedin.com/in/midun-p/" target="_blank">&#128279; LinkedIn</a>'+
+        '</div>'+
+      '</div>'+
+    '</div>'+
+    '<div class="contact-sep"></div>'+
+    '<div class="contact-socials">'+socialsHTML+'</div>';
 })();
 
-// ── Gallery ──────────────────────────
+// ── Articles / Experience ─────────────────────────
+(function(){
+  const b=document.getElementById('arw-body');
+  // Header
+  const hdr=document.createElement('div'); hdr.className='exp-header';
+  hdr.innerHTML=`<h2>Experience &amp; Roles</h2><p>${D.fullName} &middot; ${D.location}</p>`;
+  b.appendChild(hdr);
+  // Timeline
+  const tl=document.createElement('div'); tl.className='exp-timeline';
+  // Map title keywords to data-type for dot color
+  function getType(a){
+    const t=(a.title+' '+(a.tags||[]).join(' ')).toLowerCase();
+    if(t.includes('intern'))return'internship';
+    if(t.includes('ambassador'))return'ambassador';
+    if(t.includes('writer')||t.includes('content'))return'writer';
+    if(t.includes('member')||t.includes('executive'))return'member';
+    return'';
+  }
+  D.articles.forEach(a=>{
+    const c=document.createElement('div'); c.className='acard';
+    const dtype=getType(a); if(dtype) c.dataset.type=dtype;
+    const tagsHtml=(a.tags||[]).map(t=>`<span class="atag">${t}</span>`).join('');
+    c.innerHTML=`
+      <div class="acard-dot"></div>
+      <div class="acard-content">
+        <div class="acard-top">
+          <div class="atitle">${a.title}</div>
+          <div class="adate">${a.date}</div>
+        </div>
+        ${a.org?`<div class="aorg">${a.org}</div>`:''}
+        <div class="aexcerpt">${a.excerpt}</div>
+        ${tagsHtml?`<div class="atags">${tagsHtml}</div>`:''}
+      </div>`;
+    tl.appendChild(c);
+  });
+  b.appendChild(tl);
+})();
+
+// ── Gallery / Photos ─────────────────
 (function(){
   const b=document.getElementById('gw-body');
-  D.gallery.forEach(g=>{
-    const i=document.createElement('div'); i.className='gitem'; i.textContent=g.emoji; i.title=g.label; b.appendChild(i);
+  D.gallery.forEach((g,i)=>{
+    const item=document.createElement('div');
+    item.className='gitem';
+    if(g.src){
+      const img=document.createElement('img');
+      img.src=g.src;
+      img.alt=g.label||'Photo '+(i+1);
+      img.loading='lazy';
+      img.onerror=()=>{ img.style.display='none'; item.style.background='rgba(255,255,255,.08)'; };
+      item.appendChild(img);
+      // caption overlay
+      const cap=document.createElement('div');
+      cap.className='gitem-caption';
+      cap.textContent=g.label||'';
+      item.appendChild(cap);
+      item.onclick=()=>{
+        const win=document.getElementById('img-preview-win');
+        const previewImg=document.getElementById('img-preview-img');
+        const titleEl=document.getElementById('img-preview-title');
+        if(win&&previewImg){
+          previewImg.src=g.src;
+          if(titleEl) titleEl.textContent=g.label||'Photo '+(i+1);
+          win.classList.remove('hid');
+          bringFront(win);
+          win.style.animation='winOpen .22s cubic-bezier(.34,1.2,.64,1)';
+        }
+      };
+    } else {
+      const inner=document.createElement('div');
+      inner.className='gitem-emoji';
+      inner.textContent=g.emoji||'📷';
+      item.appendChild(inner);
+    }
+    b.appendChild(item);
   });
 })();
 
 // ── Resume ───────────────────────────
 (function(){
   const b=document.getElementById('rw-body');
+  if(!b)return;
   const skHTML=Object.entries(D.skills).map(([cat,items])=>`<div style="margin-bottom:8px"><span style="font-size:11px;color:rgba(255,255,255,.35);text-transform:capitalize;margin-right:6px">${cat}:</span>${items.map(s=>`<span class="reskTag">${s}</span>`).join(' ')}</div>`).join('');
   const prHTML=D.projects.map(p=>`<div class="resentry"><div class="resetitle">${p.emoji} ${p.name}</div><div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:4px">${p.tags.map(t=>`<span class="reskTag">${t}</span>`).join('')}</div><div class="resub" style="margin-top:5px">${p.description.split('\n')[0]}</div></div>`).join('');
-  const edHTML=D.education.map(e=>`<div class="resentry"><div class="resetitle">${e.degree}<span class="resperiod">${e.period}</span></div><div class="resub">${e.school}</div><ul>${e.details.map(d=>`<li>${d}</li>`).join('')}</ul></div>`).join('');
+  const edHTML=(D.education||[]).map(e=>`<div class="resentry"><div class="resetitle">${e.degree}<span class="resperiod">${e.period}</span></div><div class="resub">${e.school}</div><ul>${(e.details||[]).map(d=>`<li>${d}</li>`).join('')}</ul></div>`).join('');
   const gh=D.social.find(s=>s.name==='GitHub'), li=D.social.find(s=>s.name==='LinkedIn');
   b.innerHTML=`<div class="reshdr"><div class="resname">${D.fullName}</div><div class="rescrow"><span class="resci">📧 ${D.email}</span><span class="resci">📍 ${D.location}</span>${gh?`<span class="resci">🐙 ${gh.url.replace('https://','')}</span>`:''}${li?`<span class="resci">💼 ${li.url.replace('https://','')}</span>`:''}</div></div><div><div class="restitle">Education</div>${edHTML}</div><div><div class="restitle">Projects</div>${prHTML}</div><div><div class="restitle">Skills</div>${skHTML}</div>${D.resumeLink&&D.resumeLink!=='#'?`<a href="${D.resumeLink}" target="_blank" class="resdl">⬇️ Download Resume</a>`:`<div style="color:rgba(255,255,255,.35);font-size:12px">💡 Add your resume link in data.js → resumeLink</div>`}`;
 })();
 
-// ── Terminal ─────────────────────────
+// -- Terminal --
 const TCMDS={
-  help:()=>`Available commands:\n  about    — About me\n  skills   — My tech stack\n  projects — List all projects\n  contact  — Contact info\n  social   — Social links\n  open <app> — Open an app (finder, articles, gallery, contact, resume)\n  clear    — Clear terminal\n  theme    — Toggle theme\n  whoami   — Who I am\n  date     — Current date\n  banner   — Welcome banner`,
-  about:()=>D.terminalAbout,
-  whoami:()=>`${D.name} — ${D.title}`,
+  help:()=>`Available commands:\n\n  help - show available commands\n  about - print developer introduction\n  skills - list frontend and web3 skills\n  projects - list available projects\n  open - open <name> like resume, contact, gallery, projects\n  resume - open Resume window\n  contact - open Contact window\n  gallery - open Gallery window\n  coffee - brew support and open contact\n  whoami - print short developer identity\n  chess - show chess and YouTube links\n  clear - clear terminal screen\n  sudo hire midun - print a humorous success message`,
+  about:()=>'\n  '+D.bio.split('\n').join('\n  '),
+  whoami:()=>`\n  ${D.name} -- ${D.title}\n  github.com/MidunP  |  Open to internships & opportunities`,
+  experience:()=>`\n  ROLE                ORG                        PERIOD\n  Content Writer      NeuraNext (AI Club)        2024 - Present\n  Campus Ambassador   Fractal AI @ KPRIET        2026 - 2027\n  Executive Member    IEEE CIS                   2024 - Present\n  Data Science Intern Codsoft                    2024\n  SDE Intern          Miro Studios               2024\n\n  Type: open experience  to view full detail cards`,
   date:()=>new Date().toString(),
   skills:()=>{let o='\n';Object.entries(D.skills).forEach(([c,v])=>{o+=`  ${c.toUpperCase().padEnd(12)} ${v.join(', ')}\n`});return o},
-  projects:()=>'\n'+D.projects.map((p,i)=>`  [${i+1}] ${p.emoji} ${p.name}\n      ${p.tags.join(' · ')}`).join('\n\n'),
-  contact:()=>`\n  Email    : ${D.email}\n  Location : ${D.location}`,
+  projects:()=>'\n'+D.projects.map((p,i)=>`  [${i+1}] ${p.emoji} ${p.name}\n      ${p.tags.join(' . ')}`).join('\n\n'),
+  contact:()=>{openApp('contact');return'Opening Contact...';},
   social:()=>'\n'+D.social.map(s=>`  ${s.icon} ${s.name.padEnd(12)} ${s.url}`).join('\n'),
+  resume:()=>{openApp('resume');return'Opening Resume...';},
+  gallery:()=>{openApp('gallery');return'Opening Gallery...';},
+  coffee:()=>{openApp('contact');return'Opening Contact... grab a coffee ☕';},
+  chess:()=>`\n  Live Chess Website\n  Live : https://live-chess-website-cuwr.vercel.app\n  Code : https://github.com/MidunP/Live-Chess-Website`,
   clear:()=>{document.getElementById('tout').innerHTML='';return null;},
   theme:()=>{toggleTheme();return'Theme toggled.';},
-  banner:()=>`\n  ███╗   ███╗██╗██████╗ ██╗   ██╗███╗   ██╗\n  ████╗ ████║██║██╔══██╗██║   ██║████╗  ██║\n  ██╔████╔██║██║██║  ██║██║   ██║██╔██╗ ██║\n  ██║╚██╔╝██║██║██║  ██║██║   ██║██║╚██╗██║\n  ██║ ╚═╝ ██║██║██████╔╝╚██████╔╝██║ ╚████║\n  ╚═╝     ╚═╝╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═══╝\n\n  ${D.name}'s Portfolio Terminal v1.0\n  Type 'help' to see available commands.`,
+  banner:()=>`\n  ${D.name}@portfolio -- Terminal v1.0\n  Type 'help' to see available commands.`,
 };
-let termInited=false, tHist=[], tIdx=-1;
+// ── Terminal — initialize content immediately so it's ready when window opens ──
+let tHist=[], tIdx=-1;
+(function buildTermContent(){
+  const o=document.getElementById('tout');
+  if(!o||o.children.length>0)return; // already built
+  const now=new Date();
+  const ds=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][now.getDay()];
+  const ms=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][now.getMonth()];
+  const dateStr=ds+' '+ms+' '+now.getDate()+' '+now.getFullYear();
+
+  // Last login line
+  const login=document.createElement('div');
+  login.style.cssText='font-size:13.5px;line-height:1.75;white-space:pre;color:#d4d4d4;font-family:Menlo,Monaco,"Cascadia Code","Courier New",monospace;';
+  login.textContent='Last login: '+dateStr+' on macfolio\nType `help` to view available commands.';
+  o.appendChild(login);
+
+  // Blank line
+  const br1=document.createElement('div'); br1.innerHTML='&nbsp;'; o.appendChild(br1);
+
+  // Update the live prompt element
+  const promptTxt=(D&&D.name?D.name.toLowerCase():'midun')+'@macfolio %';
+  const promptEl=document.getElementById('tprompt-el');
+  if(promptEl) promptEl.textContent=promptTxt;
+})();
+
 function initTerm(){
-  if(termInited)return; termInited=true;
+  // Just focus the input — content was built on page load
+  const termbody=document.getElementById('termbody');
+  if(termbody) termbody.scrollTop=termbody.scrollHeight;
   setTimeout(()=>{
-    const o=document.getElementById('tout');
-    const d=document.createElement('div'); d.className='tline tout2'; d.style.whiteSpace='pre';
-    d.textContent=TCMDS.banner()+'\n\n'+TCMDS.help();
-    o.appendChild(d);
-    document.getElementById('termbody').scrollTop=9999;
-    focusTerm();
-  },120);
+    const i=document.getElementById('tinput'); if(i)i.focus();
+  },80);
 }
 function focusTerm(){ const i=document.getElementById('tinput'); if(i)i.focus(); }
 function termKey(e){
@@ -1287,35 +1847,65 @@ function termKey(e){
   tHist.push(cmd);
   const out=document.getElementById('tout');
   const pr=document.getElementById('tprompt-el').textContent;
-  const pl=document.createElement('div'); pl.className='tline';
-  pl.innerHTML=`<span class="tpd">${pr}</span> <span class="tcmd">${esc(cmd)}</span>`;
+  // Print prompt + command line
+  const pl=document.createElement('div');
+  pl.style.cssText='font-size:13.5px;line-height:1.75;font-family:Menlo,Monaco,"Cascadia Code","Courier New",monospace;margin-top:4px;';
+  pl.innerHTML='<span style="color:#61d836;font-weight:700;">'+esc(pr)+'</span><span style="color:#fff;margin-left:6px;">'+esc(cmd)+'</span>';
   out.appendChild(pl);
   const parts=cmd.split(/\s+/); const base=parts[0].toLowerCase();
+  const cmdFull=cmd.toLowerCase().trim();
   let res='';
-  if(base==='open'&&parts[1]){openApp(parts[1]);res=`Opening ${parts[1]}...`;}
-  else if(TCMDS[base]){res=TCMDS[base]();}
-  else{res=`Command not found: ${cmd}\nType 'help' for commands.`;}
-  if(res!==null&&res!==undefined){const ol=document.createElement('div');ol.className='tline tout2';ol.style.whiteSpace='pre';ol.textContent=res;out.appendChild(ol);}
+  if(cmdFull==='sudo hire midun'||cmdFull==='sudo hire akash'||cmdFull==='sudo hire me'){
+    res='\n  Great choice.\n  Hiring Midun is a decision your team will thank you for.\n\n  Email : '+(D.email||'midbxy70@gmail.com')+'\n  GitHub: github.com/MidunP\n  Status: Ready to start immediately.';
+  } else if(cmdFull==='open experience'||cmdFull==='open articles'){
+    openApp('articles');res='Opening Experience...';
+  } else if(base==='open'&&parts[1]){
+    openApp(parts[1]);res='Opening '+parts[1]+'...';
+  } else if(TCMDS[base]){
+    res=TCMDS[base]();
+  } else{
+    res='zsh: command not found: '+cmd+"\nType 'help' for available commands.";
+  }
+  if(res!==null&&res!==undefined){
+    const ol=document.createElement('div');
+    ol.style.cssText='font-size:13.5px;line-height:1.75;white-space:pre;color:#d4d4d4;font-family:Menlo,Monaco,"Cascadia Code","Courier New",monospace;';
+    ol.textContent=res;
+    out.appendChild(ol);
+  }
+  const spacer=document.createElement('div');spacer.innerHTML='&nbsp;';out.appendChild(spacer);
   document.getElementById('termbody').scrollTop=9999;
 }
-function esc(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
-// ── Dock magnify ─────────────────────
+// ── Dock magnify (smooth, no jitter) ──────────────────
 (function(){
   const dock=document.getElementById('dock');
-  const items=dock.querySelectorAll('.di');
-  dock.addEventListener('mousemove',e=>{
+  const items=[...dock.querySelectorAll('.di')];
+  let raf=null;
+  function applyMagnify(mouseX){
     items.forEach(item=>{
       const r=item.getBoundingClientRect();
       const cx=r.left+r.width/2;
-      const dist=Math.abs(e.clientX-cx);
-      const maxD=120;
-      const s=dist<maxD?1+(0.42*(1-dist/maxD)):1;
-      const lift=dist<maxD?-13*(1-dist/maxD):0;
-      item.style.transform=`scale(${s}) translateY(${lift}px)`;
+      const dist=Math.abs(mouseX-cx);
+      const maxD=100;
+      if(dist<maxD){
+        const t=1-dist/maxD;
+        const s=1+0.35*t;
+        const lift=-12*t;
+        item.style.transform=`translateY(${lift}px) scale(${s})`;
+      } else {
+        item.style.transform='';
+      }
     });
+  }
+  dock.addEventListener('mousemove',e=>{
+    if(raf) cancelAnimationFrame(raf);
+    raf=requestAnimationFrame(()=>applyMagnify(e.clientX));
   });
-  dock.addEventListener('mouseleave',()=>items.forEach(i=>i.style.transform=''));
+  dock.addEventListener('mouseleave',()=>{
+    if(raf) cancelAnimationFrame(raf);
+    items.forEach(i=>{ i.style.transform=''; });
+  });
 })();
 </script>
 </body>

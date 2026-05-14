@@ -6,37 +6,41 @@ const PORTFOLIO_DATA = {
 
   // ── Personal Info ────────────────────────────────────────
   name: "Midun",
-  fullName: "Midun [Your Last Name]",
-  title: "Full Stack Developer",
-  email: "your.email@example.com",
-  location: "Your City, Country",
-  bio: `Hey! I'm Midun 👋
+  fullName: "Midun P",
+  title: "Software Development Engineer",
+  email: "midbxy70@gmail.com",
+  location: "Coimbatore, India",
+  bio: `Midun P — Full Stack Developer
 
-A passionate Full Stack Developer who loves building scalable backend systems and clean, intuitive interfaces.
+I build backend systems and ship real products. My work centers around Node.js, Express, MongoDB, and React — with a strong focus on reliability and correctness under load, not just on localhost.
 
-I mainly work with Node.js, Express, MongoDB, React, and JavaScript — and I'm always exploring new technologies.
+Shipped projects:
+  Live Chess Website      Real-time multiplayer via Socket.io, used by strangers
+  Banking Ledger API      ACID-compliant, handles concurrent transactions correctly
+  LiveCodeX               Collaborative IDE built for technical interviews
 
-Currently focused on:
-  → Building robust backend architectures
-  → Mastering system design
-  → Exploring cloud deployment
-  → Making things that actually solve problems
+Roles and experience:
+  Campus Ambassador       Fractal AI at KPRIET, 2026-2027
+  Content Writer          NeuraNext, College AI Club
+  Executive Member        IEEE Computational Intelligence Society
+  Data Science Intern     Codsoft, 2024
+  SDE Intern              Miro Studios, 2024
 
-When I'm not coding, you'll find me playing chess ♟️, reading, or learning something new.
+I play chess, read about systems design, and am generally up for a conversation about startups or software.
 
-Available for internships, freelance work & chess matches!`,
+Currently open to internships and full-time roles.`,
 
   avatarEmoji: "👨‍💻",
 
   // ── Social Links ─────────────────────────────────────────
   // Replace '#' with your actual profile links
   social: [
-    { name: "LinkedIn",  icon: "💼", url: "https://linkedin.com/in/your-profile" },
-    { name: "GitHub",    icon: "🐙", url: "https://github.com/your-username" },
+    { name: "LinkedIn", icon: "💼", url: "https://linkedin.com/in/your-profile" },
+    { name: "GitHub", icon: "🐙", url: "https://github.com/MidunP" },
     { name: "Twitter/X", icon: "🐦", url: "https://twitter.com/your-handle" },
     { name: "Instagram", icon: "📸", url: "https://instagram.com/your-handle" },
-    { name: "Discord",   icon: "💬", url: "#" },
-    { name: "Medium",    icon: "✍️", url: "#" },
+    { name: "Discord", icon: "💬", url: "#" },
+    { name: "Medium", icon: "✍️", url: "#" },
   ],
 
   // ── Resume Link ──────────────────────────────────────────
@@ -49,139 +53,194 @@ Available for internships, freelance work & chess matches!`,
       name: "Banking Ledger Backend",
       icon: "🏦",
       emoji: "🏦",
-      description: `A production-grade banking transaction backend built with Node.js, Express, and MongoDB.
+      description: `A production-grade banking backend that handles real money movement — built to never lose a transaction.
 
-Key Features:
-  → Atomic transactions using MongoDB sessions
-  → JWT-based authentication with bcrypt password hashing
-  → Account creation, fund transfers, and ledger history
-  → Comprehensive error handling and input validation
-  → RESTful API architecture following best practices
+The core problem I wanted to solve: what happens when two transfers hit the same account at the same millisecond? Most toy projects ignore this. I didn't.
 
-This system ensures financial data integrity through ACID-compliant operations, preventing race conditions and partial transaction failures.`,
+Built with:
+  → MongoDB sessions for true ACID transactions
+  → JWT auth + bcrypt — no plaintext passwords, ever
+  → Atomic debit/credit operations that either fully succeed or fully rollback
+  → Detailed ledger history per account
+  → Input validation on every route
+
+The trickiest part was getting MongoDB's session API to work correctly with Express middleware. Spent a weekend on that one.`,
       tags: ["Node.js", "Express", "MongoDB", "JWT", "REST API"],
-      liveUrl: "#",         // Your deployed link
-      githubUrl: "https://github.com/your-username/banking-backend",
+      liveUrl: "#",
+      githubUrl: "https://github.com/MidunP/Bank-Ledger",
+      previewImage: "chess-preview.png",
     },
     {
       id: "chess-app",
-      name: "Chess Application",
+      name: "Live Chess Website",
       icon: "♟️",
       emoji: "♟️",
-      description: `An online multiplayer chess platform with real-time gameplay.
+      description: `I play chess. A lot. So naturally I built my own chess site.
 
-Key Features:
-  → Real-time multiplayer using WebSockets (Socket.io)
-  → Full chess rule enforcement (castling, en passant, promotion)
-  → Game history and move tracking
-  → Clean, responsive UI with drag-and-drop piece movement
-  → Room-based matchmaking system
+Started as a weekend project to understand WebSockets, ended up becoming something people actually use. The tagline on the site says it all — we lost so many games we started building instead.
 
-Built to showcase real-time communication patterns and complex game logic.`,
+What's under the hood:
+  → Real-time multiplayer via Socket.io with room-based matchmaking
+  → Full chess rule enforcement — castling, en passant, promotion, all of it
+  → Guest play (no signup required to jump in)
+  → Drag-and-drop piece movement
+  → Move history tracking per game
+
+Hardest bug: en passant. Always en passant.`,
       tags: ["Node.js", "Socket.io", "JavaScript", "WebSockets"],
-      liveUrl: "#",
-      githubUrl: "https://github.com/your-username/chess-app",
+      liveUrl: "https://live-chess-website-cuwr.vercel.app",
+      githubUrl: "https://github.com/MidunP/Live-Chess-Website",
+      previewImage: "chess-preview.png",
     },
     {
       id: "portfolio",
       name: "macOS Portfolio",
       icon: "🖥️",
       emoji: "🖥️",
-      description: `This portfolio! A macOS desktop-style interface built with vanilla HTML, CSS, and JavaScript.
+      description: `You're looking at it.
 
-Key Features:
-  → Draggable, resizable windows
-  → macOS dock with hover magnification
-  → Functional terminal with custom commands
-  → Dark/Light mode toggle
-  → Spotlight search
-  → Finder with project browsing
-  → No frameworks — pure vanilla JS
+I wanted a portfolio that felt like something, not just another scrollable page. Inspired by akashjana.xyz — I built my own version from scratch, with zero frameworks.
 
-Inspired by the amazing macOS portfolio aesthetic.`,
+Every part of this is vanilla JS + CSS:
+  → Draggable, resizable macOS windows
+  → Finder with real project navigation (open a folder, see the files)
+  → Dock with physics-based magnification
+  → Working terminal with custom commands (try typing 'skills')
+  → PDF resume viewer via PDF.js
+  → Spotlight search (Ctrl+Space)
+  → Dark / Light mode toggle
+
+Fun fact: the hardest thing to get right was the dock magnification curve.`,
       tags: ["HTML", "CSS", "JavaScript", "UI/UX"],
       liveUrl: "#",
-      githubUrl: "https://github.com/your-username/portfolio",
+      githubUrl: "https://github.com/MidunP/Portfolio",
     },
     {
-      id: "talent-iq",
-      name: "Talent IQ",
-      icon: "🧠",
-      emoji: "🧠",
-      description: `An AI-powered talent management and hiring platform.
+      id: "livecodex",
+      name: "LiveCodeX",
+      icon: "💻",
+      emoji: "💻",
+      description: `LiveCodeX is a full-stack collaborative coding platform — think LeetCode meets Google Docs.
 
-Key Features:
-  → AI-driven candidate screening and matching
-  → Resume parsing and skill extraction
-  → Automated interview scheduling
-  → Dashboard analytics for hiring managers
-  → RESTful API backend
+Built this to solve a real problem: doing technical interviews over a call where you're both staring at the same shared doc is painful. This gives you a real IDE, live sync, and context.
 
-Built to streamline the recruitment process using modern AI techniques.`,
-      tags: ["Node.js", "AI/ML", "React", "MongoDB", "REST API"],
+Stack:
+  → React frontend with a Monaco-based code editor
+  → Node.js + Express backend
+  → Real-time sync via Socket.io
+  → Clerk for auth (no password headaches)
+  → Stream for chat
+  → MongoDB for session persistence
+  → Deployed on Render (backend) + Vercel (frontend)
+
+Most interesting engineering challenge: handling concurrent edits without conflicts.`,
+      tags: ["React", "Node.js", "Socket.io", "Clerk", "MongoDB"],
       liveUrl: "#",
-      githubUrl: "https://github.com/your-username/talent-iq",
+      githubUrl: "https://github.com/MidunP/LiveCodeX",
+      previewImage: "livecodex-preview.png",
     },
   ],
 
   // ── Skills (shown in terminal) ───────────────────────────
   skills: {
-    backend:   ["Node.js", "Express.js", "MongoDB", "REST APIs", "JWT Auth", "Socket.io"],
-    frontend:  ["React.js", "JavaScript", "HTML5", "CSS3"],
-    devops:    ["Git", "GitHub", "Render", "Vercel", "Docker (basics)"],
+    backend: ["Node.js", "Express.js", "MongoDB", "REST APIs", "JWT Auth", "Socket.io"],
+    frontend: ["React.js", "JavaScript", "HTML5", "CSS3"],
+    devops: ["Git", "GitHub", "Render", "Vercel", "Docker (basics)"],
     languages: ["JavaScript", "TypeScript (learning)", "Python (basics)"],
-    tools:     ["VS Code", "Postman", "MongoDB Atlas", "Figma"],
+    tools: ["VS Code", "Postman", "MongoDB Atlas", "Figma"],
   },
 
-  // ── Articles / Blog ───────────────────────────────────────
+  // ── Experience / Work ────────────────────────────────────
   articles: [
     {
-      title: "Building an Atomic Banking Backend with MongoDB Sessions",
-      date: "March 2026",
-      excerpt: "How I implemented ACID-compliant transactions for a banking ledger using MongoDB sessions and Node.js to prevent race conditions and data corruption.",
+      title: "Campus Ambassador",
+      org: "Fractal AI · KPRIET",
+      date: "2026 – 2027",
+      excerpt: "Selected as the official campus ambassador for Fractal, an AI company, at KPRIET. Organising outreach sessions, coordinating workshops, and connecting peers with industry opportunities in the AI space.",
       url: "#",
+      type: "experience",
+      tags: ["Ambassador", "Fractal AI", "KPRIET"],
     },
     {
-      title: "Real-time Chess with Node.js and Socket.io",
-      date: "February 2026",
-      excerpt: "A step-by-step guide to building a multiplayer chess game with WebSockets, covering game state synchronization, room management, and rule enforcement.",
+      title: "Content Writer",
+      org: "NeuraNext · College AI Club",
+      date: "2025 – Present",
+      excerpt: "Writing technical articles and handling communications for NeuraNext, the college AI club. Work spans concept breakdowns, event coverage, and social media — with measurable growth in the club's reach since joining.",
       url: "#",
+      type: "experience",
+      tags: ["Content Writing", "AI Club"],
     },
     {
-      title: "From Local to Production: Deploying Node.js Apps on Render",
-      date: "January 2026",
-      excerpt: "My experience deploying backend applications to Render — including environment variables, database connections, and handling the gotchas that caught me off guard.",
+      title: "Executive Member",
+      org: "IEEE Computational Intelligence Society",
+      date: "2024 – 2025",
+      excerpt: "Part of the executive committee for the college IEEE CIS chapter. Involved in planning technical events and workshops that bring computational intelligence research closer to students.",
       url: "#",
+      type: "experience",
+      tags: ["IEEE", "CIS"],
+    },
+    {
+      title: "Data Science Intern",
+      org: "Codsoft",
+      date: "2024-2025",
+      excerpt: "Built and evaluated ML models on real datasets as part of an internship at Codsoft. Worked end-to-end through data preparation, model training, and performance analysis using Python and pandas.",
+      url: "#",
+      type: "experience",
+      tags: ["Internship", "Data Science", "Python"],
+    },
+    {
+      title: "SDE Intern",
+      org: "Miro Studios",
+      date: "2023-2024",
+      excerpt: "Developed production features for client-facing products at Miro Studios. Worked within the engineering team across the full development lifecycle — from design to deployment.",
+      url: "#",
+      type: "experience",
+      tags: ["Internship", "SDE", "Full Stack"],
     },
   ],
 
-  // ── Gallery (emojis for now — replace with real images) ──
+  // ── Gallery (real photos) ──────────────────────────────────────
   gallery: [
-    { emoji: "🏆", label: "Achievements" },
-    { emoji: "💻", label: "Coding Setup" },
-    { emoji: "♟️", label: "Chess" },
-    { emoji: "📚", label: "Learning" },
-    { emoji: "🎯", label: "Goals" },
-    { emoji: "🌏", label: "World" },
+    { src: "photos/photo_2026-05-14_19-22-08.jpg", label: "Photo 1" },
+    { src: "photos/photo_2026-05-14_19-22-10.jpg", label: "Photo 2" },
+    { src: "photos/photo_2026-05-14_19-22-12.jpg", label: "Photo 3" },
+    { src: "photos/photo_2026-05-14_19-23-44.jpg", label: "Photo 4" },
+    { src: "photos/photo_2026-05-14_20-31-22.jpg", label: "Photo 5" },
+    { src: "photos/photo_2026-05-14_20-38-52.jpg", label: "Photo 6" },
   ],
 
   // ── Terminal about text ───────────────────────────────────
   terminalAbout: `
-Name     : Midun
-Role     : Full Stack Developer
-Location : India
-Focus    : Backend Engineering, System Design
-Stack    : Node.js | Express | MongoDB | React
-Status   : Available for opportunities ✅
+  Name       : Midun P
+  Role       : SOFTWARE DEVELOPMENT ENGINEER
+  Location   : India
+  Education  : B.Tech CSE — 2023–2027
+
+  Stack      : Node.js | Express | MongoDB | React | Socket.io
+  Focus      : Backend Engineering · Real-time Systems · System Design
+
+  Experience :
+    → Content Creator @ GDSC (college chapter)
+    → Campus Ambassador @ Unstop
+    → Campus Ambassador @ Coding Ninjas
+
+  Projects   :
+    → Live Chess Website  (live: chess.vercel.app)
+    → Banking Ledger API  (ACID-compliant transactions)
+    → LiveCodeX           (real-time collaborative IDE)
+    → macOS Portfolio     (you're looking at it)
+
+  GitHub     : github.com/MidunP
+  Status     : Open to internships & opportunities ✅
 `,
 
   // ── Education ─────────────────────────────────────────────
   education: [
     {
       degree: "B.Tech — Computer Science Engineering",
-      school: "Your University Name",
-      period: "2022 – 2026",
-      details: ["Relevant coursework: DSA, DBMS, OS, CN", "GPA: X.X / 10"],
+      school: "KPR INSITUTE OF ENGINEERING AND TECHNOLOGY",
+      period: "2023 – 2027",
+      details: ["Relevant coursework: DSA, DBMS, OS, CN", "GPA: 8.6/ 10"],
     },
   ],
 };

@@ -112,7 +112,7 @@ Every part of this is vanilla JS + CSS:
 
 Fun fact: the hardest thing to get right was the dock magnification curve.`,
       tags: ["HTML", "CSS", "JavaScript", "UI/UX"],
-      liveUrl: "#",
+      liveUrl: "https://midunp.vercel.app",
       githubUrl: "https://github.com/MidunP/Portfolio",
     },
     {

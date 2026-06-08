@@ -4,7 +4,7 @@ A macOS-inspired interactive portfolio built entirely with vanilla HTML, CSS, an
 
 Live at → **[midunp.vercel.app](https://midunp.vercel.app)**
 
-![Portfolio Preview](portfolio-preview.png)
+
 
 ---
 

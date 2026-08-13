@@ -179,8 +179,6 @@ Engineering Highlights:
     { src: "photos/photo_2026-05-14_19-22-10.jpg", label: "Photo 2" },
     { src: "photos/photo_2026-05-14_19-22-12.jpg", label: "Photo 3" },
     { src: "photos/photo_2026-05-14_19-23-44.jpg", label: "Photo 4" },
-    { src: "photos/photo_2026-05-14_20-31-22.jpg", label: "Photo 5" },
-    { src: "photos/photo_2026-05-14_20-38-52.jpg", label: "Photo 6" },
   ],
 
   // ── Terminal about text ───────────────────────────────────

@@ -178,7 +178,17 @@ Engineering Highlights:
     { src: "photos/photo_2026-05-14_19-22-08.jpg", label: "Photo 1" },
     { src: "photos/photo_2026-05-14_19-22-10.jpg", label: "Photo 2" },
     { src: "photos/photo_2026-05-14_19-22-12.jpg", label: "Photo 3" },
-    { src: "photos/photo_2026-05-14_19-23-44.jpg", label: "Photo 4" },
+    { src: "photos/photo_2026-05-14_20-38-52.jpg", label: "Photo 4" },
+    // Hidden photos (kept in configuration, hidden from website UI)
+    { src: "photos/temp1.jpg", label: "Temp 1", hidden: true },
+    { src: "photos/temp2.jpg", label: "Temp 2", hidden: true },
+    // New photos from photos/new/
+    { src: "photos/new/1000127469.jpg", label: "Photo 5" },
+    { src: "photos/new/1000127584.jpg", label: "Photo 6" },
+    { src: "photos/new/1000130195.jpg", label: "Photo 7" },
+    { src: "photos/new/1000130196.jpg", label: "Photo 8" },
+    { src: "photos/new/1000130199.jpg", label: "Photo 9" },
+    { src: "photos/new/1000130200.jpg", label: "Photo 10" },
   ],
 
   // ── Terminal about text ───────────────────────────────────

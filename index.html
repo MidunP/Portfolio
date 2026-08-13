@@ -2899,7 +2899,7 @@
     // ── Gallery / Photos ─────────────────
     (function () {
       const b = document.getElementById('gw-body');
-      D.gallery.forEach((g, i) => {
+      D.gallery.filter(g => !g.hidden).forEach((g, i) => {
         const item = document.createElement('div');
         item.className = 'gitem';
         if (g.src) {

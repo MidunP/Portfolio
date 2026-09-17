@@ -40,7 +40,7 @@ Currently open to internships and full-time SDE opportunities.`,
   ],
 
   // ── Resume Link ──────────────────────────────────────────
-  resumeLink: "MIDUN_SDE.pdf",
+  resumeLink: "MIDUN_SDE_RESUME.pdf",
 
   // ── Projects ─────────────────────────────────────────────
   projects: [
@@ -113,6 +113,78 @@ Engineering Highlights:
       liveUrl: "#",
       githubUrl: "https://github.com/MidunP/LiveCodeX",
       previewImage: "livecodex-preview.png",
+    },
+    {
+      id: "amc",
+      name: "Broadway Ticket Watcher",
+      icon: "🎬",
+      emoji: "🎬",
+      description: `An automated FDFS (First Day First Show) ticket monitoring and booking assistant for Broadway Cinemas — built for the love of the game.
+
+Engineering Highlights:
+  → Playwright-powered headless browser automation for real-time seat scanning and booking.
+  → Anthropic AI integration to intelligently parse seat maps and select the best available seats.
+  → SQLite-backed session persistence to survive restarts between monitoring cycles.
+  → Cheerio HTML scraping for fast, lightweight availability checks without full page loads.
+  → MCP (Model Context Protocol) SDK integration for structured tool-calling AI workflows.
+  → CLI-first design with Commander.js for flexible dry-run and live booking modes.`,
+      tags: ["TypeScript", "Node.js", "Playwright", "Anthropic AI", "SQLite", "Cheerio", "MCP SDK"],
+      liveUrl: "#",
+      githubUrl: "https://github.com/MidunP/AMC",
+    },
+    {
+      id: "stash",
+      name: "Stash — Game Tracker",
+      icon: "🎮",
+      emoji: "🎮",
+      description: `A full-stack game tracking application with a Letterboxd-inspired aesthetic — beautifully log, rate, and review your gaming journey.
+
+Engineering Highlights:
+  → Next.js App Router architecture with server actions for seamless data mutations.
+  → Prisma ORM with PostgreSQL for robust, type-safe game and user data persistence.
+  → JWT-based authentication with bcryptjs for secure, stateless session management.
+  → RAWG & Steam CDN integration for rich game metadata and portrait-quality poster art.
+  → Fully responsive UI built with Tailwind CSS and Lucide React icon system.
+  → Deployed on Vercel with environment-driven configuration for production readiness.`,
+      tags: ["Next.js", "React", "TypeScript", "Prisma", "PostgreSQL", "Tailwind CSS", "Vercel"],
+      liveUrl: "https://stash-ten-psi.vercel.app",
+      githubUrl: "https://github.com/MidunP/Stash",
+    },
+    {
+      id: "grievance-portal",
+      name: "Grievance Portal — AI Layer",
+      icon: "🏛️",
+      emoji: "🏛️",
+      description: `A production-grade, multilingual AI model layer for citizen grievance systems supporting English, Hindi, and Tamil across 5 public administration categories.
+
+Engineering Highlights:
+  → 9-phase AI pipeline: data generation → language detection → classification → duplicate detection → priority prediction → departmental routing → admin dashboard → FastAPI serving → STAR research metrics.
+  → Multilingual NLP supporting English, Hindi, and Tamil with language-aware preprocessing.
+  → Vector-based duplicate detection to prevent redundant grievance submissions.
+  → Fairness auditing built into the priority prediction pipeline for unbiased outcomes.
+  → FastAPI server with a structured JSON response API for seamless frontend integration.
+  → Covers 5 departments: Water Supply, Sanitation, Roads, Electricity, Public Healthcare.`,
+      tags: ["Python", "FastAPI", "NLP", "Machine Learning", "Vector Search", "Multilingual", "AI Pipeline"],
+      liveUrl: "#",
+      githubUrl: "https://github.com/MidunP/Grievence-Portal",
+    },
+    {
+      id: "tvtime",
+      name: "TvTime — CineTrack",
+      icon: "📺",
+      emoji: "📺",
+      description: `A personal, stripped-down TV Time clone — a full-stack CineTrack app to track your show watching progress with a clean, modern UI.
+
+Engineering Highlights:
+  → React + Vite frontend with TanStack React Query for efficient server state and data synchronization.
+  → Framer Motion animations for smooth, cinematic UI transitions and micro-interactions.
+  → Node.js + Express backend with MongoDB (Mongoose) for flexible show and episode tracking.
+  → Redis (ioredis) caching layer for fast episode and show metadata lookups.
+  → JWT + bcryptjs authentication with Sentry error monitoring and Pino structured logging.
+  → Dockerized with docker-compose for consistent local dev and Render deployment via render.yaml.`,
+      tags: ["React", "Vite", "Node.js", "Express", "MongoDB", "Redis", "Framer Motion", "Docker"],
+      liveUrl: "#",
+      githubUrl: "https://github.com/MidunP/TvTime",
     },
   ],
 
@@ -201,10 +273,14 @@ Engineering Highlights:
     → Executive Member @ IEEE Computational Intelligence Society (CIS)
 
   Projects   :
-    → Live Chess Website  (WebSockets, PostgreSQL, Prisma, Redis)
-    → Bank Backend Ledger (ACID Transactions, MongoDB Sessions, Idempotency)
-    → LiveCodeX           (Collaborative IDE, Monaco Editor, Stream SDK, Piston API)
-    → macOS Portfolio     (Vanilla JS/CSS desktop environment)
+    → Live Chess Website        (WebSockets, PostgreSQL, Prisma, Redis)
+    → Bank Backend Ledger       (ACID Transactions, MongoDB Sessions, Idempotency)
+    → LiveCodeX                 (Collaborative IDE, Monaco Editor, Stream SDK, Piston API)
+    → macOS Portfolio           (Vanilla JS/CSS desktop environment)
+    → Broadway Ticket Watcher   (Playwright, Anthropic AI, MCP SDK, SQLite)
+    → Stash — Game Tracker      (Next.js, Prisma, PostgreSQL, Tailwind CSS)
+    → Grievance Portal AI Layer (FastAPI, NLP, Vector Search, Multilingual)
+    → TvTime — CineTrack        (React, Node.js, MongoDB, Redis, Docker)
 
   Skills     : Java, JS, TS, Python, SQL | Node.js, Express, REST, WebSockets | MongoDB, Postgres
   GitHub     : github.com/MidunP

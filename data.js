@@ -116,10 +116,10 @@ Engineering Highlights:
     },
     {
       id: "amc",
-      name: "Broadway Ticket Watcher",
+      name: "CineSentry",
       icon: "🎬",
       emoji: "🎬",
-      description: `An automated FDFS (First Day First Show) ticket monitoring and booking assistant for Broadway Cinemas — built for the love of the game.
+      description: `An automated FDFS (First Day First Show) cinema ticket monitoring and booking assistant — built for the love of the game.
 
 Engineering Highlights:
   → Playwright-powered headless browser automation for real-time seat scanning and booking.
@@ -277,7 +277,7 @@ Engineering Highlights:
     → Bank Backend Ledger       (ACID Transactions, MongoDB Sessions, Idempotency)
     → LiveCodeX                 (Collaborative IDE, Monaco Editor, Stream SDK, Piston API)
     → macOS Portfolio           (Vanilla JS/CSS desktop environment)
-    → Broadway Ticket Watcher   (Playwright, Anthropic AI, MCP SDK, SQLite)
+    → CineSentry                 (Playwright, Anthropic AI, MCP SDK, SQLite)
     → Stash — Game Tracker      (Next.js, Prisma, PostgreSQL, Tailwind CSS)
     → Grievance Portal AI Layer (FastAPI, NLP, Vector Search, Multilingual)
     → TvTime — CineTrack        (React, Node.js, MongoDB, Redis, Docker)

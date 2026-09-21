@@ -2221,20 +2221,20 @@
       color: #ffffff;
     }
 
-    /* ── Spotify Dynamic Glossy Card Widget (Horizontal Landscape Pill Squircle) ── */
+    /* ── Spotify Dynamic Glossy Card Widget (Ultra-Minimalist Senior Engineer Layout) ── */
     .sp-card-widget {
       position: fixed;
-      bottom: 105px;
+      bottom: 96px;
       left: 50%;
       transform: translateX(-50%);
-      width: 360px;
-      background: rgba(45, 18, 16, 0.65);
+      width: 290px;
+      background: rgba(40, 16, 15, 0.62);
       backdrop-filter: blur(40px) saturate(220%);
       -webkit-backdrop-filter: blur(40px) saturate(220%);
-      border-radius: 28px;
-      padding: 16px 20px 14px 20px;
+      border-radius: 20px;
+      padding: 12px 14px 10px 14px;
       border: 1px solid rgba(255, 255, 255, 0.16);
-      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45), inset 0 1px 1.5px rgba(255, 255, 255, 0.25);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.22);
       color: #ffffff;
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", sans-serif;
       z-index: 9990;
@@ -2245,16 +2245,16 @@
     .spc-top {
       display: flex;
       align-items: center;
-      gap: 14px;
-      margin-bottom: 12px;
+      gap: 10px;
+      margin-bottom: 8px;
     }
 
     .spc-cover {
-      width: 64px;
-      height: 64px;
-      border-radius: 12px;
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
       object-fit: cover;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
       flex-shrink: 0;
       background: rgba(255, 255, 255, 0.05);
     }
@@ -2265,7 +2265,7 @@
     }
 
     .spc-title {
-      font-size: 16.5px;
+      font-size: 14.5px;
       font-weight: 700;
       color: #ffffff;
       white-space: nowrap;
@@ -2275,13 +2275,13 @@
     }
 
     .spc-artist {
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 500;
       color: rgba(255, 255, 255, 0.65);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      margin-top: 2px;
+      margin-top: 1px;
     }
 
     .spc-badge {
@@ -2292,15 +2292,20 @@
       flex-shrink: 0;
     }
 
+    .spc-badge svg {
+      width: 20px;
+      height: 20px;
+    }
+
     /* Scrubber Timeline */
     .spc-timeline {
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
 
     .spc-bar {
-      height: 5px;
+      height: 4px;
       background: rgba(255, 255, 255, 0.22);
-      border-radius: 3px;
+      border-radius: 2px;
       cursor: pointer;
       position: relative;
       overflow: hidden;
@@ -2310,15 +2315,15 @@
       height: 100%;
       width: 0%;
       background: #ffffff;
-      border-radius: 3px;
+      border-radius: 2px;
       transition: width 0.1s linear;
     }
 
     .spc-time-row {
       display: flex;
       justify-content: space-between;
-      margin-top: 6px;
-      font-size: 11.5px;
+      margin-top: 4px;
+      font-size: 10.5px;
       font-weight: 500;
       color: rgba(255, 255, 255, 0.6);
       font-variant-numeric: tabular-nums;
@@ -2336,11 +2341,16 @@
       border: none;
       color: rgba(255, 255, 255, 0.75);
       cursor: pointer;
-      padding: 4px;
+      padding: 2px;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: color 0.15s, transform 0.15s;
+    }
+
+    .spc-icon-btn svg {
+      width: 16px;
+      height: 16px;
     }
 
     .spc-icon-btn:hover {
@@ -2351,7 +2361,7 @@
     .spc-controls {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 14px;
     }
 
     .spc-ctrl-btn {
@@ -2365,14 +2375,19 @@
       transition: transform 0.15s, opacity 0.15s;
     }
 
+    .spc-ctrl-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
     .spc-ctrl-btn:hover {
       transform: scale(1.12);
       opacity: 0.9;
     }
 
     .spc-play-circle {
-      width: 44px;
-      height: 44px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       background: #ffffff;
       border: none;
@@ -2380,8 +2395,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
       transition: transform 0.15s, background 0.15s;
+    }
+
+    .spc-play-circle svg {
+      width: 16px;
+      height: 16px;
     }
 
     .spc-play-circle:hover {

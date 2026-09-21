@@ -2138,6 +2138,294 @@
       }
     }
 
+    /* ── Top Bar Spotify Pill ── */
+    .mbar-music-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 2px 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      font-size: 11.5px;
+      color: rgba(255, 255, 255, 0.9);
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      user-select: none;
+      margin: 0 4px;
+    }
+
+    .mbar-music-pill:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .mbar-music-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 10px;
+    }
+
+    .mbar-music-bars .bar {
+      width: 2px;
+      height: 4px;
+      background: #1DB954;
+      border-radius: 1px;
+      transition: height 0.2s;
+    }
+
+    .mbar-music-pill.playing .bar.b1 {
+      animation: eqBar 0.6s ease-in-out infinite alternate;
+    }
+
+    .mbar-music-pill.playing .bar.b2 {
+      animation: eqBar 0.8s ease-in-out infinite alternate 0.2s;
+    }
+
+    .mbar-music-pill.playing .bar.b3 {
+      animation: eqBar 0.5s ease-in-out infinite alternate 0.4s;
+    }
+
+    @keyframes eqBar {
+      0% {
+        height: 3px;
+      }
+
+      100% {
+        height: 10px;
+      }
+    }
+
+    .mbar-music-text {
+      max-width: 130px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-weight: 500;
+    }
+
+    .mbar-music-btn {
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.7);
+      cursor: pointer;
+      padding: 0 2px;
+      display: flex;
+      align-items: center;
+      transition: color 0.15s;
+    }
+
+    .mbar-music-btn:hover {
+      color: #ffffff;
+    }
+
+    /* ── Spotify Dynamic Card Widget (Floating Above App Bar) ── */
+    .sp-card-widget {
+      position: fixed;
+      bottom: 84px;
+      right: 28px;
+      width: 320px;
+      background: rgba(48, 22, 22, 0.88);
+      backdrop-filter: blur(28px) saturate(180%);
+      -webkit-backdrop-filter: blur(28px) saturate(180%);
+      border-radius: 20px;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", sans-serif;
+      z-index: 9990;
+      user-select: none;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .spc-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .spc-cover {
+      width: 64px;
+      height: 64px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+      flex-shrink: 0;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .spc-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .spc-title {
+      font-size: 16.5px;
+      font-weight: 700;
+      color: #ffffff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      letter-spacing: -0.01em;
+    }
+
+    .spc-artist {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.65);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-top: 2px;
+    }
+
+    .spc-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.95;
+      flex-shrink: 0;
+    }
+
+    /* Scrubber Timeline */
+    .spc-timeline {
+      margin-bottom: 12px;
+    }
+
+    .spc-bar {
+      height: 5px;
+      background: rgba(255, 255, 255, 0.22);
+      border-radius: 3px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .spc-fill {
+      height: 100%;
+      width: 0%;
+      background: #ffffff;
+      border-radius: 3px;
+      transition: width 0.1s linear;
+    }
+
+    .spc-time-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 6px;
+      font-size: 11.5px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.6);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Bottom Row Controls */
+    .spc-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .spc-icon-btn {
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.75);
+      cursor: pointer;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.15s, transform 0.15s;
+    }
+
+    .spc-icon-btn:hover {
+      color: #ffffff;
+      transform: scale(1.1);
+    }
+
+    .spc-controls {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .spc-ctrl-btn {
+      background: none;
+      border: none;
+      color: #ffffff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.15s, opacity 0.15s;
+    }
+
+    .spc-ctrl-btn:hover {
+      transform: scale(1.12);
+      opacity: 0.9;
+    }
+
+    .spc-play-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+      transition: transform 0.15s, background 0.15s;
+    }
+
+    .spc-play-circle:hover {
+      transform: scale(1.06);
+      background: #f0f0f0;
+    }
+
+    .spc-play-circle:active {
+      transform: scale(0.96);
+    }
+
+    .spc-queue-pop {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .spc-q-hdr {
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .spc-q-items {
+      max-height: 100px;
+      overflow-y: auto;
+    }
+
+    .sp-q-title {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.85);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .sp-q-artist {
+      font-size: 10.5px;
+      color: #b3b3b3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
     .cur {
       display: inline-block;
       width: 1.5px;
@@ -2191,6 +2479,27 @@
           <path d="M4 21c0-4 3.6-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
         </svg>
       </span>
+      <!-- Spotify Music Controller Pill -->
+      <div id="mbar-music-pill" class="mbar-music-pill" onclick="toggleMusicWidget(event)"
+        title="Click for Spotify Mini Player">
+        <div class="mbar-music-bars">
+          <span class="bar b1"></span>
+          <span class="bar b2"></span>
+          <span class="bar b3"></span>
+        </div>
+        <span class="mbar-music-text" id="mbar-music-text">Starboy &middot; The Weeknd</span>
+        <button class="mbar-music-btn" onclick="event.stopPropagation(); togglePlayPause();" title="Play/Pause">
+          <svg id="mbar-play-icon" width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </button>
+        <button class="mbar-music-btn" onclick="event.stopPropagation(); nextTrack();" title="Next Track">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" />
+          </svg>
+        </button>
+      </div>
+
       <!-- Control Center -->
       <span class="mico" onclick="toggleCC()" id="cc-btn">
         <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
@@ -2214,6 +2523,81 @@
           <span class="cc-toggle-knob"></span>
         </button>
       </span>
+    </div>
+  </div>
+
+  <!-- ═══ SPOTIFY WIDGET (FLOATING ABOVE DOCK) ═══ -->
+  <div id="spotify-card-widget" class="sp-card-widget" onclick="event.stopPropagation()">
+    <!-- Top Row: Cover, Info, Spotify Logo -->
+    <div class="spc-top">
+      <img id="spc-cover" class="spc-cover" src="" alt="Album Cover" />
+      <div class="spc-info">
+        <div id="spc-title" class="spc-title">Zeus's Law</div>
+        <div id="spc-artist" class="spc-artist">Ludwig Göransson</div>
+      </div>
+      <div class="spc-badge" title="Spotify">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#ffffff">
+          <path
+            d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.48-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141 C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.281 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Timeline Scrubber -->
+    <div class="spc-timeline">
+      <div class="spc-bar" id="spc-bar" onclick="seekAudio(event)">
+        <div class="spc-fill" id="spc-fill"></div>
+      </div>
+      <div class="spc-time-row">
+        <span id="spc-curr" class="spc-time">00:00</span>
+        <span id="spc-total" class="spc-time">00:00</span>
+      </div>
+    </div>
+
+    <!-- Bottom Controls: Speaker, Prev, Big Play Circle, Next, Plus -->
+    <div class="spc-bottom">
+      <button class="spc-icon-btn" title="Output Device">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <rect x="5" y="3" width="14" height="18" rx="2" />
+          <circle cx="12" cy="14" r="3" />
+          <circle cx="12" cy="7" r="1" />
+        </svg>
+      </button>
+
+      <div class="spc-controls">
+        <button class="spc-ctrl-btn" onclick="prevTrack()" title="Previous Track">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6 6h2.5v12H6zm3.5 6l9 6.5V5.5z" />
+          </svg>
+        </button>
+
+        <button class="spc-play-circle" onclick="togglePlayPause()" title="Play / Pause">
+          <svg id="spc-play-svg" width="22" height="22" viewBox="0 0 24 24" fill="#000000" style="margin-left: 2px;">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </button>
+
+        <button class="spc-ctrl-btn" onclick="nextTrack()" title="Next Track">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6 18.5l9-6.5-9-6.5v13zM15.5 6v12H18V6h-2.5z" />
+          </svg>
+        </button>
+      </div>
+
+      <button class="spc-icon-btn" onclick="togglePlaylistQueue()" title="Add to Library / Queue">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="9" />
+          <line x1="12" y1="8" x2="12" y2="16" />
+          <line x1="8" y1="12" x2="16" y2="12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Collapsible Playlist Queue Popover -->
+    <div id="spc-queue-pop" class="spc-queue-pop hid">
+      <div class="spc-q-hdr">Playlist Queue</div>
+      <div id="spc-q-items" class="spc-q-items"></div>
     </div>
   </div>
 
@@ -3461,6 +3845,142 @@ LinkedIn : linkedin.com/in/midun-p`;
         if (raf) cancelAnimationFrame(raf);
         items.forEach(i => { i.style.transform = ''; });
       });
+    })();
+
+    // ── Spotify Audio Engine ───────────────────────────
+    (function initAudioPlayer() {
+      let playlist = D.songs || [];
+      let currentIdx = 0;
+      let isPlaying = false;
+      const audio = new Audio();
+      audio.volume = 0.8;
+
+      if (playlist.length === 0) return;
+
+      function loadTrack(idx) {
+        if (idx < 0) idx = playlist.length - 1;
+        if (idx >= playlist.length) idx = 0;
+        currentIdx = idx;
+
+        const track = playlist[currentIdx];
+        audio.src = track.src;
+
+        const titleEl = document.getElementById('spc-title');
+        const artistEl = document.getElementById('spc-artist');
+        const coverEl = document.getElementById('spc-cover');
+        const barTextEl = document.getElementById('mbar-music-text');
+
+        if (titleEl) titleEl.textContent = track.title;
+        if (artistEl) artistEl.textContent = track.artist;
+        if (coverEl) coverEl.src = track.cover || 'https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?w=300&auto=format&fit=crop&q=80';
+        if (barTextEl) barTextEl.textContent = `${track.title} · ${track.artist}`;
+
+        renderQueue();
+      }
+
+      function updatePlayState(playing) {
+        isPlaying = playing;
+        const pill = document.getElementById('mbar-music-pill');
+        if (pill) pill.classList.toggle('playing', isPlaying);
+
+        const mbarIcon = document.getElementById('mbar-play-icon');
+        const spcPlaySVG = document.getElementById('spc-play-svg');
+
+        const playSVG = '<path d="M8 5v14l11-7z"/>';
+        const pauseSVG = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+
+        if (mbarIcon) mbarIcon.innerHTML = isPlaying ? pauseSVG : playSVG;
+        if (spcPlaySVG) spcPlaySVG.innerHTML = isPlaying ? pauseSVG : playSVG;
+      }
+
+      window.togglePlayPause = function () {
+        if (!audio.src) loadTrack(currentIdx);
+        if (isPlaying) {
+          audio.pause();
+          updatePlayState(false);
+        } else {
+          audio.play().then(() => updatePlayState(true)).catch(err => {
+            console.warn("Audio playback message: File not uploaded yet or blocked by browser policy.", err);
+            updatePlayState(false);
+          });
+        }
+      };
+
+      window.nextTrack = function () {
+        loadTrack(currentIdx + 1);
+        if (isPlaying) audio.play().then(() => updatePlayState(true)).catch(() => updatePlayState(false));
+      };
+
+      window.prevTrack = function () {
+        loadTrack(currentIdx - 1);
+        if (isPlaying) audio.play().then(() => updatePlayState(true)).catch(() => updatePlayState(false));
+      };
+
+      window.seekAudio = function (e) {
+        const bar = document.getElementById('spc-bar');
+        if (!bar || !audio.duration) return;
+        const rect = bar.getBoundingClientRect();
+        const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+        audio.currentTime = pct * audio.duration;
+      };
+
+      window.toggleMusicWidget = function (e) {
+        if (e) e.stopPropagation();
+        const widget = document.getElementById('spotify-card-widget');
+        if (!widget) return;
+        widget.classList.toggle('hid');
+        const cc = document.getElementById('cc');
+        if (cc) cc.classList.add('hid');
+      };
+
+      window.togglePlaylistQueue = function () {
+        const qPop = document.getElementById('spc-queue-pop');
+        if (qPop) qPop.classList.toggle('hid');
+      };
+
+      audio.addEventListener('timeupdate', () => {
+        if (!audio.duration) return;
+        const fill = document.getElementById('spc-fill');
+        const currTime = document.getElementById('spc-curr');
+        const totalTime = document.getElementById('spc-total');
+
+        const pct = (audio.currentTime / audio.duration) * 100;
+        if (fill) fill.style.width = pct + '%';
+        if (currTime) currTime.textContent = formatTime(audio.currentTime);
+        if (totalTime) totalTime.textContent = formatTime(audio.duration);
+      });
+
+      audio.addEventListener('ended', () => {
+        nextTrack();
+      });
+
+      function formatTime(secs) {
+        if (isNaN(secs)) return "00:00";
+        const m = Math.floor(secs / 60);
+        const s = Math.floor(secs % 60);
+        return `${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
+      }
+
+      function renderQueue() {
+        const qItems = document.getElementById('spc-q-items');
+        if (!qItems) return;
+        qItems.innerHTML = playlist.map((t, idx) => `
+          <div class="spc-q-item ${idx === currentIdx ? 'active' : ''}" onclick="playTrackIdx(${idx})">
+            <span class="spc-q-num">${idx === currentIdx ? '▶' : (idx + 1)}</span>
+            <div class="spc-q-info">
+              <div class="spc-q-title">${t.title}</div>
+              <div class="spc-q-artist">${t.artist}</div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      window.playTrackIdx = function (idx) {
+        loadTrack(idx);
+        audio.play().then(() => updatePlayState(true)).catch(() => updatePlayState(false));
+      };
+
+      loadTrack(0);
     })();
   </script>
 </body>

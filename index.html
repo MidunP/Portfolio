@@ -2220,24 +2220,25 @@
       color: #ffffff;
     }
 
-    /* ── Spotify Dynamic Card Widget (Floating Above App Bar) ── */
+    /* ── Spotify Dynamic Glossy Card Widget (Centered Above App Bar / Dock) ── */
     .sp-card-widget {
       position: fixed;
-      bottom: 84px;
-      right: 28px;
-      width: 320px;
-      background: rgba(48, 22, 22, 0.88);
-      backdrop-filter: blur(28px) saturate(180%);
-      -webkit-backdrop-filter: blur(28px) saturate(180%);
-      border-radius: 20px;
-      padding: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      bottom: 110px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 350px;
+      background: rgba(45, 18, 16, 0.65);
+      backdrop-filter: blur(36px) saturate(220%);
+      -webkit-backdrop-filter: blur(36px) saturate(220%);
+      border-radius: 22px;
+      padding: 16px 18px 14px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45), inset 0 1px 1.5px rgba(255, 255, 255, 0.25);
       color: #ffffff;
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", sans-serif;
       z-index: 9990;
       user-select: none;
-      transition: transform 0.2s ease, opacity 0.2s ease;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
     }
 
     .spc-top {

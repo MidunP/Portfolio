@@ -2221,20 +2221,23 @@
       color: #ffffff;
     }
 
-    /* ── Spotify Dynamic Glossy Card Widget (Flat Minimalist Layout Above Dock) ── */
+    /* ── Spotify Dynamic Glossy Banner Widget (2-Column Flat Layout Above Dock) ── */
     .sp-card-widget {
       position: fixed;
-      bottom: 124px;
+      bottom: 120px;
       left: 50%;
       transform: translateX(-50%);
-      width: 250px;
-      background: rgba(35, 15, 15, 0.65);
+      width: 340px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(30, 16, 18, 0.65);
       backdrop-filter: blur(40px) saturate(220%);
       -webkit-backdrop-filter: blur(40px) saturate(220%);
-      border-radius: 16px;
-      padding: 10px 12px 8px 12px;
+      border-radius: 18px;
+      padding: 10px 12px;
       border: 1px solid rgba(255, 255, 255, 0.16);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.22);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.22);
       color: #ffffff;
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", sans-serif;
       z-index: 9990;
@@ -2242,26 +2245,35 @@
       transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
     }
 
+    .spc-cover {
+      width: 68px;
+      height: 68px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+      flex-shrink: 0;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .spc-body {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
     .spc-top {
       display: flex;
       align-items: center;
-      gap: 8px;
-      margin-bottom: 6px;
-    }
-
-    .spc-cover {
-      width: 38px;
-      height: 38px;
-      border-radius: 8px;
-      object-fit: cover;
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
-      flex-shrink: 0;
-      background: rgba(255, 255, 255, 0.05);
+      justify-content: space-between;
+      margin-bottom: 4px;
     }
 
     .spc-info {
       flex: 1;
       min-width: 0;
+      padding-right: 6px;
     }
 
     .spc-title {
@@ -2272,6 +2284,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       letter-spacing: -0.01em;
+      line-height: 1.2;
     }
 
     .spc-artist {
@@ -2282,13 +2295,14 @@
       overflow: hidden;
       text-overflow: ellipsis;
       margin-top: 1px;
+      line-height: 1.2;
     }
 
     .spc-badge {
       display: flex;
       align-items: center;
       justify-content: center;
-      opacity: 0.95;
+      opacity: 0.9;
       flex-shrink: 0;
     }
 
@@ -2297,9 +2311,9 @@
       height: 16px;
     }
 
-    /* Scrubber Timeline */
+    /* Timeline Scrubber */
     .spc-timeline {
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .spc-bar {
@@ -2322,14 +2336,14 @@
     .spc-time-row {
       display: flex;
       justify-content: space-between;
-      margin-top: 3px;
-      font-size: 9.5px;
+      margin-top: 2px;
+      font-size: 9px;
       font-weight: 500;
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(255, 255, 255, 0.55);
       font-variant-numeric: tabular-nums;
     }
 
-    /* Bottom Row Controls */
+    /* Bottom Controls */
     .spc-bottom {
       display: flex;
       align-items: center;
@@ -2339,9 +2353,9 @@
     .spc-icon-btn {
       background: none;
       border: none;
-      color: rgba(255, 255, 255, 0.75);
+      color: rgba(255, 255, 255, 0.7);
       cursor: pointer;
-      padding: 2px;
+      padding: 1px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -2386,8 +2400,8 @@
     }
 
     .spc-play-circle {
-      width: 28px;
-      height: 28px;
+      width: 26px;
+      height: 26px;
       border-radius: 50%;
       background: #ffffff;
       border: none;
@@ -2395,7 +2409,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
       transition: transform 0.15s, background 0.15s;
     }
 
@@ -2559,70 +2573,75 @@
 
   <!-- ═══ SPOTIFY WIDGET (FLOATING ABOVE DOCK) ═══ -->
   <div id="spotify-card-widget" class="sp-card-widget" onclick="event.stopPropagation()">
-    <!-- Top Row: Cover, Info, Spotify Logo -->
-    <div class="spc-top">
-      <img id="spc-cover" class="spc-cover" src="" alt="Album Cover" />
-      <div class="spc-info">
-        <div id="spc-title" class="spc-title">Zeus's Law</div>
-        <div id="spc-artist" class="spc-artist">Ludwig Göransson</div>
-      </div>
-      <div class="spc-badge" title="Spotify">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="#ffffff">
-          <path
-            d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.48-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141 C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.281 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z" />
-        </svg>
-      </div>
-    </div>
+    <!-- Left Column: Album Cover -->
+    <img id="spc-cover" class="spc-cover" src="" alt="Album Cover" />
 
-    <!-- Timeline Scrubber -->
-    <div class="spc-timeline">
-      <div class="spc-bar" id="spc-bar" onclick="seekAudio(event)">
-        <div class="spc-fill" id="spc-fill"></div>
+    <!-- Right Column: Metadata, Scrubber, Controls -->
+    <div class="spc-body">
+      <!-- Row 1: Title, Artist, Spotify Logo -->
+      <div class="spc-top">
+        <div class="spc-info">
+          <div id="spc-title" class="spc-title">Zeus's Law</div>
+          <div id="spc-artist" class="spc-artist">Ludwig Göransson</div>
+        </div>
+        <div class="spc-badge" title="Spotify">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#ffffff">
+            <path
+              d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.48-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141 C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.281 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z" />
+          </svg>
+        </div>
       </div>
-      <div class="spc-time-row">
-        <span id="spc-curr" class="spc-time">00:00</span>
-        <span id="spc-total" class="spc-time">00:00</span>
+
+      <!-- Row 2: Timeline Scrubber -->
+      <div class="spc-timeline">
+        <div class="spc-bar" id="spc-bar" onclick="seekAudio(event)">
+          <div class="spc-fill" id="spc-fill"></div>
+        </div>
+        <div class="spc-time-row">
+          <span id="spc-curr" class="spc-time">00:00</span>
+          <span id="spc-total" class="spc-time">00:00</span>
+        </div>
       </div>
-    </div>
 
-    <!-- Bottom Controls: Speaker, Prev, Big Play Circle, Next, Plus -->
-    <div class="spc-bottom">
-      <button class="spc-icon-btn" title="Output Device">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <rect x="5" y="3" width="14" height="18" rx="2" />
-          <circle cx="12" cy="14" r="3" />
-          <circle cx="12" cy="7" r="1" />
-        </svg>
-      </button>
-
-      <div class="spc-controls">
-        <button class="spc-ctrl-btn" onclick="prevTrack()" title="Previous Track">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M6 6h2.5v12H6zm3.5 6l9 6.5V5.5z" />
+      <!-- Row 3: Bottom Controls -->
+      <div class="spc-bottom">
+        <button class="spc-icon-btn" title="Output Device">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="3" width="14" height="18" rx="2" />
+            <circle cx="12" cy="14" r="3" />
+            <circle cx="12" cy="7" r="1" />
           </svg>
         </button>
 
-        <button class="spc-play-circle" onclick="togglePlayPause()" title="Play / Pause">
-          <svg id="spc-play-svg" width="22" height="22" viewBox="0 0 24 24" fill="#000000" style="margin-left: 2px;">
-            <path d="M8 5v14l11-7z" />
-          </svg>
-        </button>
+        <div class="spc-controls">
+          <button class="spc-ctrl-btn" onclick="prevTrack()" title="Previous Track">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6 6h2.5v12H6zm3.5 6l9 6.5V5.5z" />
+            </svg>
+          </button>
 
-        <button class="spc-ctrl-btn" onclick="nextTrack()" title="Next Track">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M6 18.5l9-6.5-9-6.5v13zM15.5 6v12H18V6h-2.5z" />
+          <button class="spc-play-circle" onclick="togglePlayPause()" title="Play / Pause">
+            <svg id="spc-play-svg" width="14" height="14" viewBox="0 0 24 24" fill="#000000" style="margin-left: 1px;">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </button>
+
+          <button class="spc-ctrl-btn" onclick="nextTrack()" title="Next Track">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6 18.5l9-6.5-9-6.5v13zM15.5 6v12H18V6h-2.5z" />
+            </svg>
+          </button>
+        </div>
+
+        <button class="spc-icon-btn" onclick="togglePlaylistQueue()" title="Queue">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="9" />
+            <line x1="12" y1="8" x2="12" y2="16" />
+            <line x1="8" y1="12" x2="16" y2="12" />
           </svg>
         </button>
       </div>
-
-      <button class="spc-icon-btn" onclick="togglePlaylistQueue()" title="Add to Library / Queue">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="9" />
-          <line x1="12" y1="8" x2="12" y2="16" />
-          <line x1="8" y1="12" x2="16" y2="12" />
-        </svg>
-      </button>
     </div>
 
     <!-- Collapsible Playlist Queue Popover -->

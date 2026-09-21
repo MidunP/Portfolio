@@ -2221,18 +2221,18 @@
       color: #ffffff;
     }
 
-    /* ── Spotify Dynamic Glossy Card Widget (Ultra-Minimalist Senior Engineer Layout) ── */
+    /* ── Spotify Dynamic Glossy Card Widget (Flat Minimalist Layout Above Dock) ── */
     .sp-card-widget {
       position: fixed;
-      bottom: 96px;
+      bottom: 124px;
       left: 50%;
       transform: translateX(-50%);
-      width: 290px;
-      background: rgba(40, 16, 15, 0.62);
+      width: 250px;
+      background: rgba(35, 15, 15, 0.65);
       backdrop-filter: blur(40px) saturate(220%);
       -webkit-backdrop-filter: blur(40px) saturate(220%);
-      border-radius: 20px;
-      padding: 12px 14px 10px 14px;
+      border-radius: 16px;
+      padding: 10px 12px 8px 12px;
       border: 1px solid rgba(255, 255, 255, 0.16);
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.22);
       color: #ffffff;
@@ -2245,16 +2245,16 @@
     .spc-top {
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 8px;
+      gap: 8px;
+      margin-bottom: 6px;
     }
 
     .spc-cover {
-      width: 48px;
-      height: 48px;
-      border-radius: 10px;
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
       object-fit: cover;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
       flex-shrink: 0;
       background: rgba(255, 255, 255, 0.05);
     }
@@ -2265,7 +2265,7 @@
     }
 
     .spc-title {
-      font-size: 14.5px;
+      font-size: 13px;
       font-weight: 700;
       color: #ffffff;
       white-space: nowrap;
@@ -2275,7 +2275,7 @@
     }
 
     .spc-artist {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 500;
       color: rgba(255, 255, 255, 0.65);
       white-space: nowrap;
@@ -2293,17 +2293,17 @@
     }
 
     .spc-badge svg {
-      width: 20px;
-      height: 20px;
+      width: 16px;
+      height: 16px;
     }
 
     /* Scrubber Timeline */
     .spc-timeline {
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .spc-bar {
-      height: 4px;
+      height: 3px;
       background: rgba(255, 255, 255, 0.22);
       border-radius: 2px;
       cursor: pointer;
@@ -2322,8 +2322,8 @@
     .spc-time-row {
       display: flex;
       justify-content: space-between;
-      margin-top: 4px;
-      font-size: 10.5px;
+      margin-top: 3px;
+      font-size: 9.5px;
       font-weight: 500;
       color: rgba(255, 255, 255, 0.6);
       font-variant-numeric: tabular-nums;
@@ -2349,8 +2349,8 @@
     }
 
     .spc-icon-btn svg {
-      width: 16px;
-      height: 16px;
+      width: 14px;
+      height: 14px;
     }
 
     .spc-icon-btn:hover {
@@ -2361,7 +2361,7 @@
     .spc-controls {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 10px;
     }
 
     .spc-ctrl-btn {
@@ -2376,8 +2376,8 @@
     }
 
     .spc-ctrl-btn svg {
-      width: 16px;
-      height: 16px;
+      width: 14px;
+      height: 14px;
     }
 
     .spc-ctrl-btn:hover {
@@ -2386,8 +2386,8 @@
     }
 
     .spc-play-circle {
-      width: 36px;
-      height: 36px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
       background: #ffffff;
       border: none;
@@ -2395,13 +2395,22 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
       transition: transform 0.15s, background 0.15s;
     }
 
     .spc-play-circle svg {
-      width: 16px;
-      height: 16px;
+      width: 14px;
+      height: 14px;
+    }
+
+    .spc-play-circle:hover {
+      transform: scale(1.06);
+      background: #f0f0f0;
+    }
+
+    .spc-play-circle:active {
+      transform: scale(0.96);
     }
 
     .spc-play-circle:hover {

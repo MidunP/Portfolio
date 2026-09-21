@@ -932,61 +932,203 @@
 
     .pdesc {
       font-size: 14px;
-      line-height: 1.65;
-      color: rgba(255, 255, 255, .55);
-      white-space: pre-wrap;
     }
 
-    .plinks {
+    /* ── Project Detail Window ── */
+    .project-wtbar {
+      background: rgba(28, 28, 32, 0.96);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .pdbody {
+      flex: 1;
+      overflow-y: auto;
+      padding: 28px 32px;
+      background: #0f0f11;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+    }
+
+    .pd-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .pd-icon {
+      font-size: 38px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .pd-title-block {
+      flex: 1;
+    }
+
+    .pd-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+
+    .pd-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .pd-tag {
+      font-size: 11px;
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 5px;
+      padding: 2px 8px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .pd-desc {
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.78);
+      white-space: pre-wrap;
+      margin-bottom: 24px;
+    }
+
+    .pd-actions {
       display: flex;
       gap: 10px;
-      margin-top: 6px;
+      margin-top: 20px;
     }
 
-    .plbtn {
-      padding: 8px 18px;
+    .pd-btn {
+      padding: 8px 16px;
       border-radius: 8px;
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 500;
-      border: none;
-      cursor: pointer;
       text-decoration: none;
-      transition: transform .15s, filter .15s;
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      transition: background 0.15s, border-color 0.15s;
     }
 
-    .plbtn:hover {
-      filter: brightness(1.12);
-      transform: translateY(-1px);
-    }
-
-    .plbtn.pr {
+    .pd-btn.primary {
       background: #0a84ff;
-      color: #fff;
+      color: #ffffff;
     }
 
-    .plbtn.se {
-      background: rgba(255, 255, 255, .1);
-      color: rgba(255, 255, 255, .85);
-      border: 1px solid rgba(255, 255, 255, .12);
+    .pd-btn.primary:hover {
+      background: #0071e3;
     }
 
-    /* ── About txt ── */
-    .txtbody {
+    .pd-btn.secondary {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .pd-btn.secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .pd-btn.disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    /* ── Text Editor (About Me) ── */
+    .editor-wtbar {
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      height: 38px;
+      background: rgba(28, 28, 32, 0.96);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      gap: 12px;
+      cursor: grab;
+      position: relative;
+    }
+
+    .editor-tab {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 6px 6px 0 0;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: none;
+    }
+
+    .editor-container {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      overflow: hidden;
+      background: #0e0e10;
+    }
+
+    .editor-body {
+      display: flex;
       flex: 1;
       overflow-y: auto;
-      padding: 20px 24px;
-      background: rgba(255, 255, 255, .02);
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 12.5px;
+      line-height: 1.65;
     }
 
-    .txtbody pre {
-      font-family: 'Cascadia Code', 'Fira Code', 'Courier New', monospace;
-      font-size: 13px;
-      line-height: 1.7;
-      color: rgba(255, 255, 255, .85);
+    .editor-gutter {
+      padding: 16px 12px 16px 16px;
+      background: rgba(255, 255, 255, 0.015);
+      border-right: 1px solid rgba(255, 255, 255, 0.06);
+      color: rgba(255, 255, 255, 0.25);
+      text-align: right;
+      user-select: none;
+      font-size: 11.5px;
+    }
+
+    .editor-code {
+      flex: 1;
+      padding: 16px 20px;
+      overflow-x: auto;
+    }
+
+    .editor-code pre {
+      font-family: inherit;
+      color: rgba(255, 255, 255, 0.82);
       white-space: pre-wrap;
+      margin: 0;
+    }
+
+    .editor-statusbar {
+      display: flex;
+      align-items: center;
+      padding: 4px 16px;
+      background: #16161a;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.45);
+      gap: 8px;
+    }
+
+    .sb-right {
+      margin-left: auto;
     }
 
     /* ── Image preview modal ── */
@@ -1014,53 +1156,167 @@
     }
 
     /* ── Safari/Experience ── */
+    .safari-wtbar {
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      height: 38px;
+      background: rgba(30, 30, 34, 0.96);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      gap: 12px;
+      cursor: grab;
+      position: relative;
+    }
+
+    .safari-tabs {
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      flex: 1;
+      height: 100%;
+      padding-top: 6px;
+    }
+
+    .safari-tab {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 0 12px;
+      height: 30px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 7px 7px 0 0;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: none;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 12px;
+      font-weight: 500;
+      max-width: 220px;
+      user-select: none;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .safari-tab.active {
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.14);
+    }
+
+    .safari-tab-icon {
+      color: #0a84ff;
+      flex-shrink: 0;
+    }
+
+    .safari-tab-title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex: 1;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    }
+
+    .safari-tab-close {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      border-radius: 50%;
+      width: 14px;
+      height: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.15s, background 0.15s;
+    }
+
+    .safari-tab-close:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+
     .bchr {
       display: flex;
       flex-direction: column;
       flex: 1;
       overflow: hidden;
+      background: #0f0f11;
     }
 
     .bbar {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 8px 14px;
-      background: rgba(28, 28, 32, .98);
-      border-bottom: 1px solid rgba(255, 255, 255, .07);
+      gap: 12px;
+      padding: 8px 16px;
+      background: rgba(22, 22, 26, 0.98);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     }
 
     .bnav {
       display: flex;
+      align-items: center;
       gap: 4px;
     }
 
     .bnavbtn {
-      background: rgba(255, 255, 255, .06);
-      border: none;
-      padding: 4px 9px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      width: 28px;
+      height: 28px;
       border-radius: 6px;
-      color: rgba(255, 255, 255, .25);
-      cursor: not-allowed;
-      font-size: 13px;
+      color: rgba(255, 255, 255, 0.6);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .bnavbtn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
     }
 
     .burl {
       flex: 1;
-      background: rgba(255, 255, 255, .05);
-      border: 1px solid rgba(255, 255, 255, .09);
+      max-width: 440px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 8px;
       padding: 5px 14px;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 8px;
       font-size: 12px;
-      color: rgba(255, 255, 255, .4);
+      color: rgba(255, 255, 255, 0.7);
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .burl:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.14);
     }
 
     .burl-lock {
-      color: rgba(80, 200, 120, .7);
-      font-size: 11px;
+      color: #30d158;
+      flex-shrink: 0;
+    }
+
+    .burl-text {
+      flex: 1;
+      text-align: center;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      letter-spacing: 0.01em;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .burl-reload {
+      color: rgba(255, 255, 255, 0.4);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .burl-reload:hover {
+      color: #fff;
     }
 
     /* Page body */
@@ -1068,103 +1324,97 @@
       flex: 1;
       overflow-y: auto;
       padding: 28px 32px 40px;
+      background: #0f0f11;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, sans-serif;
     }
 
     .abody::-webkit-scrollbar {
-      width: 4px;
+      width: 6px;
+    }
+
+    .abody::-webkit-scrollbar-track {
+      background: transparent;
     }
 
     .abody::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, .1);
-      border-radius: 2px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 3px;
     }
 
-    /* Page header */
+    .abody-container {
+      max-width: 660px;
+      margin: 0 auto;
+    }
+
+    /* Header block */
     .exp-header {
-      margin-bottom: 32px;
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .exp-title-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
     }
 
     .exp-header h2 {
-      font-size: 20px;
-      font-weight: 700;
-      color: rgba(255, 255, 255, .92);
-      letter-spacing: -.02em;
+      font-size: 22px;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: -0.02em;
     }
 
-    .exp-header p {
+    .exp-meta {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 6px;
+      font-weight: 400;
+    }
+
+    .exp-stats-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 14px;
       font-size: 12px;
-      color: rgba(255, 255, 255, .28);
-      margin-top: 5px;
-      letter-spacing: .01em;
+      color: rgba(255, 255, 255, 0.5);
     }
 
-    /* Timeline */
-    .exp-timeline {
-      position: relative;
+    .exp-stat-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .exp-stat-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #30d158;
+    }
+
+    /* Clean Card List */
+    .exp-list {
       display: flex;
       flex-direction: column;
+      gap: 16px;
     }
 
-    .exp-timeline::before {
-      content: '';
-      position: absolute;
-      left: 19px;
-      top: 12px;
-      bottom: 12px;
-      width: 1px;
-      background: linear-gradient(to bottom,
-          transparent 0%,
-          rgba(255, 255, 255, .1) 10%,
-          rgba(255, 255, 255, .07) 85%,
-          transparent 100%);
-    }
-
-    /* Card */
     .acard {
-      display: flex;
-      gap: 22px;
-      padding: 18px 0;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 10px;
+      padding: 20px 22px;
+      transition: background 0.2s ease, border-color 0.2s ease;
       position: relative;
-      cursor: default;
-      transition: background .15s;
     }
 
-    .acard:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 42px;
-      right: 0;
-      height: 1px;
-      background: rgba(255, 255, 255, .05);
-    }
-
-    /* Dot */
-    .acard-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, .18);
-      border: 1.5px solid rgba(255, 255, 255, .12);
-      flex-shrink: 0;
-      margin-top: 4px;
-      margin-left: 15px;
-      transition: background .2s, box-shadow .2s, border-color .2s;
-      position: relative;
-      z-index: 1;
-    }
-
-    .acard:hover .acard-dot {
-      background: #4eb0ff;
-      border-color: rgba(78, 176, 255, .5);
-      box-shadow: 0 0 0 5px rgba(78, 176, 255, .12), 0 0 14px rgba(78, 176, 255, .35);
-    }
-
-    /* Content area */
-    .acard-content {
-      flex: 1;
-      min-width: 0;
-      padding-right: 4px;
+    .acard:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.15);
     }
 
     .acard-top {
@@ -1172,82 +1422,64 @@
       align-items: flex-start;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 3px;
+      margin-bottom: 6px;
+    }
+
+    .atitle-group {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
     }
 
     .atitle {
-      font-size: 13.5px;
+      font-size: 15px;
       font-weight: 600;
-      color: rgba(255, 255, 255, .82);
-      letter-spacing: -.01em;
-      transition: color .15s;
-    }
-
-    .acard:hover .atitle {
-      color: rgba(255, 255, 255, .98);
-    }
-
-    .adate {
-      font-size: 10.5px;
-      color: rgba(255, 255, 255, .25);
-      font-variant-numeric: tabular-nums;
-      flex-shrink: 0;
-      padding-top: 1px;
-      letter-spacing: .02em;
+      color: #ffffff;
+      letter-spacing: -0.01em;
     }
 
     .aorg {
-      font-size: 11.5px;
-      color: rgba(255, 255, 255, .32);
-      margin-bottom: 9px;
+      font-size: 13px;
+      color: #38bdf8;
+      font-weight: 500;
+    }
+
+    .adate {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.45);
       font-weight: 400;
-      letter-spacing: .005em;
+      white-space: nowrap;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 3px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
     }
 
     .aexcerpt {
-      font-size: 12px;
-      color: rgba(255, 255, 255, .38);
-      line-height: 1.7;
-      max-width: 520px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.6;
+      margin-top: 10px;
+      letter-spacing: 0;
     }
 
     .atags {
       display: flex;
-      gap: 5px;
+      gap: 6px;
       flex-wrap: wrap;
-      margin-top: 12px;
+      margin-top: 14px;
     }
 
     .atag {
-      font-size: 9.5px;
-      background: rgba(255, 255, 255, .04);
-      border: 1px solid rgba(255, 255, 255, .08);
-      border-radius: 4px;
-      padding: 2px 8px;
-      color: rgba(255, 255, 255, .28);
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    /* Type-specific dot colors */
-    .acard[data-type="internship"] .acard-dot {
-      background: rgba(52, 199, 89, .35);
-      border-color: rgba(52, 199, 89, .3);
-    }
-
-    .acard[data-type="ambassador"] .acard-dot {
-      background: rgba(255, 159, 10, .35);
-      border-color: rgba(255, 159, 10, .3);
-    }
-
-    .acard[data-type="member"] .acard-dot {
-      background: rgba(94, 92, 230, .35);
-      border-color: rgba(94, 92, 230, .3);
-    }
-
-    .acard[data-type="writer"] .acard-dot {
-      background: rgba(100, 210, 255, .35);
-      border-color: rgba(100, 210, 255, .3);
+      font-size: 11px;
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 5px;
+      padding: 3px 9px;
+      color: rgba(255, 255, 255, 0.65);
+      letter-spacing: 0;
+      text-transform: none;
     }
 
     /* Suppress old elements */
@@ -2124,39 +2356,102 @@
   </div>
 
   <!-- PROJECT DETAIL -->
-  <div id="pw" class="win hid" style="left:220px;top:115px;width:640px;height:440px">
-    <div class="wtbar" onmousedown="drag(event,'pw')">
-      <div class="wbtns"><button class="wb cl" onclick="closeW('pw')"></button><button class="wb mn"
-          onclick="closeW('pw')"></button><button class="wb mx" onclick="toggleFS('pw')"></button></div>
-      <span class="wtitle" id="pw-title">Project</span>
+  <div id="pw" class="win hid" style="left:200px;top:100px;width:660px;height:480px">
+    <div class="wtbar project-wtbar" onmousedown="drag(event,'pw')">
+      <div class="wbtns">
+        <button class="wb cl" onclick="closeW('pw')"></button>
+        <button class="wb mn" onclick="closeW('pw')"></button>
+        <button class="wb mx" onclick="toggleFS('pw')"></button>
+      </div>
+      <span class="wtitle" id="pw-title">Project Specification</span>
     </div>
     <div class="pdbody" id="pw-body"></div>
   </div>
 
-  <!-- ABOUT TXT -->
-  <div id="aw" class="win hid" style="left:165px;top:78px;width:560px;height:400px">
-    <div class="wtbar" onmousedown="drag(event,'aw')">
-      <div class="wbtns"><button class="wb cl" onclick="closeW('aw')"></button><button class="wb mn"
-          onclick="closeW('aw')"></button><button class="wb mx" onclick="toggleFS('aw')"></button></div>
-      <span class="wtitle">about-me.txt</span>
+  <!-- ABOUT ME (TEXT EDIT) -->
+  <div id="aw" class="win hid" style="left:165px;top:78px;width:660px;height:480px">
+    <div class="wtbar editor-wtbar" onmousedown="drag(event,'aw')">
+      <div class="wbtns">
+        <button class="wb cl" onclick="closeW('aw')"></button>
+        <button class="wb mn" onclick="closeW('aw')"></button>
+        <button class="wb mx" onclick="toggleFS('aw')"></button>
+      </div>
+      <div class="editor-tab">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
+        </svg>
+        <span>about-me.txt</span>
+      </div>
     </div>
-    <div class="txtbody">
-      <pre id="about-pre"></pre>
+    <div class="editor-container">
+      <div class="editor-body">
+        <div class="editor-gutter" id="about-gutter"></div>
+        <div class="editor-code">
+          <pre id="about-pre"></pre>
+        </div>
+      </div>
+      <div class="editor-statusbar">
+        <span class="sb-item">UTF-8</span>
+        <span class="sb-sep">&bull;</span>
+        <span class="sb-item">Plain Text</span>
+        <span class="sb-sep">&bull;</span>
+        <span class="sb-item" id="about-line-count">Ln 34, Col 1</span>
+        <div class="sb-right">
+          <span class="sb-item">Coimbatore, IN</span>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- ARTICLES (SAFARI) -->
-  <div id="arw" class="win hid" style="left:110px;top:65px;width:700px;height:500px">
-    <div class="wtbar" onmousedown="drag(event,'arw')">
-      <div class="wbtns"><button class="wb cl" onclick="closeW('arw')"></button><button class="wb mn"
-          onclick="closeW('arw')"></button><button class="wb mx" onclick="toggleFS('arw')"></button></div>
-      <span class="wtitle">Experience — Safari</span>
+  <!-- ARTICLES / EXPERIENCE (SAFARI) -->
+  <div id="arw" class="win hid" style="left:110px;top:65px;width:760px;height:540px">
+    <div class="wtbar safari-wtbar" onmousedown="drag(event,'arw')">
+      <div class="wbtns">
+        <button class="wb cl" onclick="closeW('arw')"></button>
+        <button class="wb mn" onclick="closeW('arw')"></button>
+        <button class="wb mx" onclick="toggleFS('arw')"></button>
+      </div>
+      <div class="safari-tabs">
+        <div class="safari-tab active">
+          <svg class="safari-tab-icon" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="2" y1="12" x2="22" y2="12" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+          </svg>
+          <span class="safari-tab-title">Experience — Midun P</span>
+          <span class="safari-tab-close" onclick="event.stopPropagation(); closeW('arw');">×</span>
+        </div>
+      </div>
     </div>
     <div class="bchr">
       <div class="bbar">
-        <div class="bnav"><button class="bnavbtn" disabled>&#8592;</button><button class="bnavbtn"
-            disabled>&#8594;</button></div>
-        <div class="burl"><span class="burl-lock">&#x1F512;</span><span>midun.dev/experience</span></div>
+        <div class="bnav">
+          <button class="bnavbtn" title="Back">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+          <button class="bnavbtn" title="Forward">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+        </div>
+        <div class="burl">
+          <svg class="burl-lock" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5">
+            <rect x="3" y="11" width="18" height="11" rx="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>
+          <span class="burl-text">midun.dev/experience</span>
+          <svg class="burl-reload" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5">
+            <polyline points="23 4 23 10 17 10" />
+            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+          </svg>
+        </div>
       </div>
       <div class="abody" id="arw-body"></div>
     </div>
@@ -2546,8 +2841,68 @@
       const si = document.getElementById('si-' + sec); if (si) si.classList.add('sa');
       openApp('finder');
     }
+    function renderAboutMeText() {
+      const pre = document.getElementById('about-pre');
+      const gutter = document.getElementById('about-gutter');
+      const lineCountEl = document.getElementById('about-line-count');
+      if (!pre) return;
+
+      const aboutText = `# Midun P — Software Development Engineer
+# System Architecture | Distributed Backend Systems | Real-Time Applications
+
+================================================================================
+TECHNICAL PROFILE
+================================================================================
+Backend-focused Software Engineer specializing in scalable microservices,
+real-time WebSocket architectures, and high-reliability data persistence.
+Passionate about production system design, ACID guarantees, performance, and clean code.
+
+================================================================================
+CORE COMPETENCIES
+================================================================================
+• Languages    : JavaScript (ES6+), TypeScript, Java, Python, SQL
+• Backend      : Node.js, Express.js, WebSockets (Socket.io), REST APIs
+• Databases    : MongoDB (Mongoose Sessions), PostgreSQL, Prisma ORM, Redis
+• Systems      : ACID Transactions, Write-Buffer Queues, Distributed Caching, JWT
+• Tooling      : Git/GitHub, Docker, Postman, Vercel, Render, Linux CLI
+
+================================================================================
+PRODUCTION EXPERIENCE & HIGHLIGHTS
+================================================================================
+[Mavericks SDE Intern — March 2025 - May 2025]
+• Built a multi-layered fraud detection engine (device, IP, rate-limiting)
+  cutting free-trial abuse by ~8-9% across 20K+ active Play Store users.
+
+[Live Multiplayer Chess Engine]
+• Engineered a real-time WebSocket backend with PostgreSQL + Prisma persistence
+  and a Redis write-buffer queue for high-throughput move validation.
+
+[Bank Backend Ledger]
+• Implemented double-entry accounting ledger with Mongoose multi-document ACID
+  transactions, on-demand balance aggregation, and strict endpoint idempotency.
+
+================================================================================
+AVAILABILITY & CONTACT
+================================================================================
+Status   : Open for SDE Internships & Full-Time Roles
+Email    : midbxy70@gmail.com
+Location : Coimbatore, India
+GitHub   : github.com/MidunP
+LinkedIn : linkedin.com/in/midun-p`;
+
+      pre.textContent = aboutText;
+
+      const lines = aboutText.split('\n');
+      if (gutter) {
+        gutter.innerHTML = lines.map((_, i) => String(i + 1).padStart(2, '0')).join('<br>');
+      }
+      if (lineCountEl) {
+        lineCountEl.textContent = `Ln ${lines.length}, Col 1`;
+      }
+    }
+
     function openAbout() {
-      document.getElementById('about-pre').textContent = `about-me.txt — ${new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}\n${'─'.repeat(48)}\n\n${D.bio}\n\n${'─'.repeat(48)}\nEmail    : ${D.email}\nLocation : ${D.location}`;
+      renderAboutMeText();
       const w = document.getElementById('aw'); w.classList.remove('hid'); bringFront(w);
     }
 
@@ -2770,17 +3125,24 @@
 
     function openProj(id) {
       const p = D.projects.find(x => x.id === id); if (!p) return;
-      document.getElementById('pw-title').textContent = p.name + '.txt';
+      document.getElementById('pw-title').textContent = `${p.name} — Architecture & Specs`;
+
+      const tagsHtml = (p.tags || []).map(t => `<span class="pd-tag">${t}</span>`).join('');
+
       document.getElementById('pw-body').innerHTML = `
-    <div class="phdr"><span class="pico">${p.emoji}</span>
-      <div class="ptb"><div class="ptitle">${p.name}</div>
-        <div class="ptags">${p.tags.map(t => `<span class="ptag">${t}</span>`).join('')}</div>
-      </div></div>
-    <div class="pdesc">${p.description}</div>
-    <div class="plinks">
-      ${p.liveUrl && p.liveUrl !== '#' ? `<a href="${p.liveUrl}" target="_blank" class="plbtn pr">🌐 Live Demo</a>` : ''}
-      ${p.githubUrl && p.githubUrl !== '#' ? `<a href="${p.githubUrl}" target="_blank" class="plbtn se">🐙 GitHub</a>` : `<span class="plbtn se" style="opacity:.4;cursor:not-allowed">🔒 Private</span>`}
-    </div>`;
+        <div class="pd-header">
+          <div class="pd-icon">${p.emoji}</div>
+          <div class="pd-title-block">
+            <div class="pd-title">${p.name}</div>
+            <div class="pd-tags">${tagsHtml}</div>
+          </div>
+        </div>
+        <div class="pd-desc">${p.description}</div>
+        <div class="pd-actions">
+          ${p.liveUrl && p.liveUrl !== '#' ? `<a href="${p.liveUrl}" target="_blank" class="pd-btn primary">🌐 Live Demo</a>` : ''}
+          ${p.githubUrl && p.githubUrl !== '#' ? `<a href="${p.githubUrl}" target="_blank" class="pd-btn secondary">🐙 GitHub Repository</a>` : `<span class="pd-btn secondary disabled">🔒 Private Repository</span>`}
+        </div>
+      `;
       const w = document.getElementById('pw'); w.classList.remove('hid'); bringFront(w);
     }
 
@@ -2861,39 +3223,70 @@
     // ── Articles / Experience ─────────────────────────
     (function () {
       const b = document.getElementById('arw-body');
+      if (!b) return;
+      b.innerHTML = '';
+
+      const container = document.createElement('div');
+      container.className = 'abody-container';
+
       // Header
-      const hdr = document.createElement('div'); hdr.className = 'exp-header';
-      hdr.innerHTML = `<h2>Experience &amp; Roles</h2><p>${D.fullName} &middot; ${D.location}</p>`;
-      b.appendChild(hdr);
-      // Timeline
-      const tl = document.createElement('div'); tl.className = 'exp-timeline';
-      // Map title keywords to data-type for dot color
-      function getType(a) {
-        const t = (a.title + ' ' + (a.tags || []).join(' ')).toLowerCase();
-        if (t.includes('intern')) return 'internship';
-        if (t.includes('ambassador')) return 'ambassador';
-        if (t.includes('writer') || t.includes('content')) return 'writer';
-        if (t.includes('member') || t.includes('executive')) return 'member';
-        return '';
+      const hdr = document.createElement('div');
+      hdr.className = 'exp-header';
+      hdr.innerHTML = `
+        <div class="exp-title-row">
+          <h2>Work Experience</h2>
+        </div>
+        <div class="exp-meta">${D.fullName} &middot; ${D.title} &middot; ${D.location}</div>
+        <div class="exp-stats-bar">
+          <div class="exp-stat-item"><span class="exp-stat-dot"></span> Open for SDE Roles &amp; Internships</div>
+          <span>&bull;</span>
+          <div>${D.articles.length} Roles &amp; Leadership Positions</div>
+        </div>
+      `;
+      container.appendChild(hdr);
+
+      // Helper to compute date score for reverse chronological sorting
+      function getSortScore(dateStr) {
+        if (!dateStr) return 0;
+        const lower = dateStr.toLowerCase();
+        if (lower.includes('present')) return 999999;
+        const years = dateStr.match(/\b(20\d\d)\b/g);
+        if (!years || years.length === 0) return 0;
+        const endYear = parseInt(years[years.length - 1], 10);
+        const startYear = parseInt(years[0], 10);
+        const months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+        let monthIdx = 0;
+        months.forEach((m, i) => { if (lower.includes(m)) monthIdx = Math.max(monthIdx, i + 1); });
+        return endYear * 10000 + startYear * 100 + monthIdx;
       }
-      D.articles.forEach(a => {
-        const c = document.createElement('div'); c.className = 'acard';
-        const dtype = getType(a); if (dtype) c.dataset.type = dtype;
+
+      // Clone & sort in reverse chronological order (most recent first)
+      const sortedArticles = [...D.articles].sort((a, b) => getSortScore(b.date) - getSortScore(a.date));
+
+      // List
+      const list = document.createElement('div');
+      list.className = 'exp-list';
+
+      sortedArticles.forEach(a => {
+        const c = document.createElement('div');
+        c.className = 'acard';
         const tagsHtml = (a.tags || []).map(t => `<span class="atag">${t}</span>`).join('');
         c.innerHTML = `
-      <div class="acard-dot"></div>
-      <div class="acard-content">
-        <div class="acard-top">
-          <div class="atitle">${a.title}</div>
-          <div class="adate">${a.date}</div>
-        </div>
-        ${a.org ? `<div class="aorg">${a.org}</div>` : ''}
-        <div class="aexcerpt">${a.excerpt}</div>
-        ${tagsHtml ? `<div class="atags">${tagsHtml}</div>` : ''}
-      </div>`;
-        tl.appendChild(c);
+          <div class="acard-top">
+            <div class="atitle-group">
+              <div class="atitle">${a.title}</div>
+              ${a.org ? `<div class="aorg">${a.org}</div>` : ''}
+            </div>
+            <div class="adate">${a.date}</div>
+          </div>
+          <div class="aexcerpt">${a.excerpt}</div>
+          ${tagsHtml ? `<div class="atags">${tagsHtml}</div>` : ''}
+        `;
+        list.appendChild(c);
       });
-      b.appendChild(tl);
+
+      container.appendChild(list);
+      b.appendChild(container);
     })();
 
     // ── Gallery / Photos ─────────────────

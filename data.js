@@ -119,18 +119,16 @@ Engineering Highlights:
       name: "CineSentry",
       icon: "🎬",
       emoji: "🎬",
-      description: `An automated FDFS (First Day First Show) cinema ticket monitoring and booking assistant — built for the love of the game.
+      description: `A personal utility for monitoring cinema ticket availability and schedule updates.
 
 Engineering Highlights:
-  → Playwright-powered headless browser automation for real-time seat scanning and booking.
-  → Anthropic AI integration to intelligently parse seat maps and select the best available seats.
-  → SQLite-backed session persistence to survive restarts between monitoring cycles.
-  → Cheerio HTML scraping for fast, lightweight availability checks without full page loads.
-  → MCP (Model Context Protocol) SDK integration for structured tool-calling AI workflows.
-  → CLI-first design with Commander.js for flexible dry-run and live booking modes.`,
-      tags: ["TypeScript", "Node.js", "Playwright", "Anthropic AI", "SQLite", "Cheerio", "MCP SDK"],
+  → Lightweight status monitoring engine built with TypeScript and Node.js.
+  → Configurable notification triggers and local session management.
+
+Note: Personal internal project.`,
+      tags: ["TypeScript", "Node.js", "CLI", "Automation"],
       liveUrl: "#",
-      githubUrl: "https://github.com/MidunP/AMC",
+      githubUrl: "#",
     },
     {
       id: "stash",
@@ -199,15 +197,6 @@ Engineering Highlights:
   // ── Experience / Work ────────────────────────────────────
   articles: [
     {
-      title: "Software Development Engineer Intern",
-      org: "Mavericks",
-      date: "March 2025 – May 2025",
-      excerpt: "Built a multi-layered fraud detection system (device, phone/email, IP, behavior signals) to stop duplicate free-trial abuse on a 20K+ user Play Store app, cutting fraudulent signups by ~8–9%. Implemented detection logic in Node.js, Express, and MongoDB into existing auth flows without disrupting legitimate users.",
-      url: "#",
-      type: "experience",
-      tags: ["SDE Intern", "Node.js", "Express.js", "MongoDB", "Fraud Detection"],
-    },
-    {
       title: "Campus Ambassador",
       org: "Fractal Analytics (IQIGAI)",
       date: "2026 – 2027",
@@ -224,6 +213,15 @@ Engineering Highlights:
       url: "#",
       type: "experience",
       tags: ["Social Media", "NeuraNest", "AI"],
+    },
+    {
+      title: "Software Development Engineer Intern",
+      org: "Mavericks",
+      date: "March 2025 – May 2025",
+      excerpt: "Built a multi-layered fraud detection system (device, phone/email, IP, behavior signals) to stop duplicate free-trial abuse on a 20K+ user Play Store app, cutting fraudulent signups by ~8–9%. Implemented detection logic in Node.js, Express, and MongoDB into existing auth flows without disrupting legitimate users.",
+      url: "#",
+      type: "experience",
+      tags: ["SDE Intern", "Node.js", "Express.js", "MongoDB", "Fraud Detection"],
     },
     {
       title: "Data Science Intern",

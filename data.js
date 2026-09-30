@@ -299,35 +299,19 @@ Engineering Highlights:
   songs: [
     {
       id: "song-1",
-      title: "Zeus's Law",
+      title: "Can You Hear The Music",
       artist: "Ludwig Göransson",
-      album: "The Odyssey",
-      src: "assets/audio/song1.mp3",
+      album: "Oppenheimer",
+      src: "UniverseNolan_-_Ludwig_G_ransson_-_Can_You_Hear_The_Music_(mp3.pm).mp3",
       cover: "https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?w=300&auto=format&fit=crop&q=80"
     },
     {
       id: "song-2",
-      title: "Starboy",
-      artist: "The Weeknd",
-      album: "Starboy",
-      src: "assets/audio/song2.mp3",
+      title: "I Thought I Saw Your Face Today",
+      artist: "She & Him",
+      album: "Volume One",
+      src: "She_and_Him_-_I_Thought_I_Saw_Your_Face_Today_(mp3.pm) (1).mp3",
       cover: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=300&auto=format&fit=crop&q=80"
-    },
-    {
-      id: "song-3",
-      title: "Midnight City",
-      artist: "M83",
-      album: "Hurry Up, We're Dreaming",
-      src: "assets/audio/song3.mp3",
-      cover: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=300&auto=format&fit=crop&q=80"
-    },
-    {
-      id: "song-4",
-      title: "Resonance",
-      artist: "HOME",
-      album: "Odyssey",
-      src: "assets/audio/song4.mp3",
-      cover: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&auto=format&fit=crop&q=80"
     }
   ],
 };

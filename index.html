@@ -2436,86 +2436,171 @@
       transform: scale(0.96);
     }
 
-    .spc-queue-pop {
-      margin-top: 10px;
-      padding-top: 8px;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    /* ── Song Library Side Panel ─────────────────────────── */
+    #spc-library-panel {
+      position: fixed;
+      bottom: 120px;
+      right: 20px;
+      width: 260px;
+      background: rgba(18, 14, 20, 0.82);
+      backdrop-filter: blur(48px) saturate(200%);
+      -webkit-backdrop-filter: blur(48px) saturate(200%);
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.55),
+        inset 0 1px 1px rgba(255, 255, 255, 0.12);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", sans-serif;
+      color: #fff;
+      z-index: 9991;
+      user-select: none;
+      overflow: hidden;
+      transform-origin: bottom right;
+      transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .spc-q-hdr {
-      font-size: 11px;
-      font-weight: 600;
-      color: rgba(255, 255, 255, 0.5);
-      text-transform: uppercase;
-      margin-bottom: 6px;
+    #spc-library-panel.hid {
+      opacity: 0;
+      transform: scale(0.92) translateY(10px);
+      pointer-events: none;
     }
 
-    .spc-q-items {
-      max-height: 120px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
+    #spc-library-panel:not(.hid) {
+      opacity: 1;
+      transform: scale(1) translateY(0);
     }
 
-    .spc-q-item {
+    .spc-lib-header {
       display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 4px 6px;
-      border-radius: 6px;
+      justify-content: space-between;
+      padding: 14px 16px 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .spc-lib-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .spc-lib-close {
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      color: rgba(255, 255, 255, 0.55);
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      transition: background 0.15s, color 0.15s;
+      flex-shrink: 0;
+    }
+
+    .spc-lib-close:hover {
+      background: rgba(255, 255, 255, 0.18);
+      color: #fff;
+    }
+
+    .spc-lib-body {
+      padding: 8px 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      max-height: 280px;
+      overflow-y: auto;
+    }
+
+    .spc-lib-body::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    .spc-lib-body::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 2px;
+    }
+
+    .spc-lib-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 8px;
+      border-radius: 10px;
       cursor: pointer;
       transition: background 0.15s ease;
+      position: relative;
     }
 
-    .spc-q-item:hover {
-      background: rgba(255, 255, 255, 0.1);
+    .spc-lib-item:hover {
+      background: rgba(255, 255, 255, 0.08);
     }
 
-    .spc-q-item.active {
-      background: rgba(255, 255, 255, 0.16);
+    .spc-lib-item.lib-active {
+      background: rgba(29, 185, 84, 0.14);
     }
 
-    .spc-q-num {
-      font-size: 10px;
-      font-weight: 700;
-      color: #1db954;
-      width: 12px;
-      text-align: center;
-      flex-shrink: 0;
-    }
-
-    .spc-q-thumb {
-      width: 26px;
-      height: 26px;
-      border-radius: 4px;
+    .spc-lib-thumb {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
       object-fit: cover;
       flex-shrink: 0;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
     }
 
-    .spc-q-info {
+    .spc-lib-meta {
       flex: 1;
       min-width: 0;
     }
 
-    .spc-q-title {
-      font-size: 11.5px;
+    .spc-lib-track {
+      font-size: 12.5px;
       font-weight: 600;
-      color: #ffffff;
+      color: #fff;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      line-height: 1.2;
+      line-height: 1.3;
     }
 
-    .spc-q-artist {
-      font-size: 10px;
-      color: rgba(255, 255, 255, 0.6);
+    .spc-lib-artist {
+      font-size: 10.5px;
+      color: rgba(255, 255, 255, 0.5);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      line-height: 1.2;
+      line-height: 1.3;
+      margin-top: 1px;
+    }
+
+    .spc-lib-playing-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #1db954;
+      flex-shrink: 0;
+      box-shadow: 0 0 6px rgba(29, 185, 84, 0.7);
+      animation: pulseGreen 1.4s ease-in-out infinite;
+    }
+
+    @keyframes pulseGreen {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.5;
+        transform: scale(0.8);
+      }
     }
 
     .cur {
@@ -2691,13 +2776,17 @@
       </div>
     </div>
 
-    <!-- Collapsible Playlist Queue Popover -->
-    <div id="spc-queue-pop" class="spc-queue-pop hid">
-      <div class="spc-q-hdr">Playlist Queue</div>
-      <div id="spc-q-items" class="spc-q-items"></div>
-    </div>
+
   </div>
 
+  <!-- ═══ SONG LIBRARY PANEL (Right-side floating panel) ═══ -->
+  <div id="spc-library-panel" class="hid" onclick="event.stopPropagation()">
+    <div class="spc-lib-header">
+      <span class="spc-lib-title">🎵 &nbsp;Library</span>
+      <button class="spc-lib-close" onclick="togglePlaylistQueue()" title="Close">✕</button>
+    </div>
+    <div class="spc-lib-body" id="spc-lib-items"></div>
+  </div>
 
   <!-- ═══ SPOTLIGHT ═══ -->
   <div id="spo" class="hid" onclick="closeSpo(event)">
@@ -4031,8 +4120,8 @@ LinkedIn : linkedin.com/in/midun-p`;
       };
 
       window.togglePlaylistQueue = function () {
-        const qPop = document.getElementById('spc-queue-pop');
-        if (qPop) qPop.classList.toggle('hid');
+        const panel = document.getElementById('spc-library-panel');
+        if (panel) panel.classList.toggle('hid');
       };
 
       audio.addEventListener('timeupdate', () => {
@@ -4059,16 +4148,16 @@ LinkedIn : linkedin.com/in/midun-p`;
       }
 
       function renderQueue() {
-        const qItems = document.getElementById('spc-q-items');
-        if (!qItems) return;
-        qItems.innerHTML = playlist.map((t, idx) => `
-          <div class="spc-q-item ${idx === currentIdx ? 'active' : ''}" onclick="playTrackIdx(${idx})">
-            <span class="spc-q-num">${idx === currentIdx ? '▶' : (idx + 1)}</span>
-            <img src="${t.cover}" class="spc-q-thumb" alt="${t.title}" />
-            <div class="spc-q-info">
-              <div class="spc-q-title">${t.title}</div>
-              <div class="spc-q-artist">${t.artist}</div>
+        const libItems = document.getElementById('spc-lib-items');
+        if (!libItems) return;
+        libItems.innerHTML = playlist.map((t, idx) => `
+          <div class="spc-lib-item ${idx === currentIdx ? 'lib-active' : ''}" onclick="playTrackIdx(${idx})">
+            <img src="${t.cover}" class="spc-lib-thumb" alt="${t.title}" />
+            <div class="spc-lib-meta">
+              <div class="spc-lib-track">${t.title}</div>
+              <div class="spc-lib-artist">${t.artist}</div>
             </div>
+            ${idx === currentIdx ? '<span class="spc-lib-playing-dot"></span>' : ''}
           </div>
         `).join('');
       }

@@ -303,7 +303,7 @@ Engineering Highlights:
       artist: "Ludwig Göransson",
       album: "Oppenheimer",
       src: "UniverseNolan_-_Ludwig_G_ransson_-_Can_You_Hear_The_Music_(mp3.pm).mp3",
-      cover: "https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?w=300&auto=format&fit=crop&q=80"
+      cover: "photos/oppenheimer.jpg"
     },
     {
       id: "song-2",
@@ -311,7 +311,7 @@ Engineering Highlights:
       artist: "She & Him",
       album: "Volume One",
       src: "She_and_Him_-_I_Thought_I_Saw_Your_Face_Today_(mp3.pm) (1).mp3",
-      cover: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=300&auto=format&fit=crop&q=80"
+      cover: "photos/she_and_him.jpg"
     }
   ],
 };

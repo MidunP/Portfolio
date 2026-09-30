@@ -2451,24 +2451,71 @@
     }
 
     .spc-q-items {
-      max-height: 100px;
+      max-height: 120px;
       overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
     }
 
-    .sp-q-title {
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.85);
+    .spc-q-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 6px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+
+    .spc-q-item:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .spc-q-item.active {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .spc-q-num {
+      font-size: 10px;
+      font-weight: 700;
+      color: #1db954;
+      width: 12px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .spc-q-thumb {
+      width: 26px;
+      height: 26px;
+      border-radius: 4px;
+      object-fit: cover;
+      flex-shrink: 0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .spc-q-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .spc-q-title {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #ffffff;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      line-height: 1.2;
     }
 
-    .sp-q-artist {
-      font-size: 10.5px;
-      color: #b3b3b3;
+    .spc-q-artist {
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.6);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      line-height: 1.2;
     }
 
     .cur {
@@ -4017,6 +4064,7 @@ LinkedIn : linkedin.com/in/midun-p`;
         qItems.innerHTML = playlist.map((t, idx) => `
           <div class="spc-q-item ${idx === currentIdx ? 'active' : ''}" onclick="playTrackIdx(${idx})">
             <span class="spc-q-num">${idx === currentIdx ? '▶' : (idx + 1)}</span>
+            <img src="${t.cover}" class="spc-q-thumb" alt="${t.title}" />
             <div class="spc-q-info">
               <div class="spc-q-title">${t.title}</div>
               <div class="spc-q-artist">${t.artist}</div>

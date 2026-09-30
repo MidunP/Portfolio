@@ -303,7 +303,7 @@ Engineering Highlights:
       artist: "Ludwig Göransson",
       album: "Oppenheimer",
       src: "UniverseNolan_-_Ludwig_G_ransson_-_Can_You_Hear_The_Music_(mp3.pm).mp3",
-      cover: "photos/oppenheimer.jpg"
+      cover: "photos/can_you_hear_the_music.jpg"
     },
     {
       id: "song-2",
